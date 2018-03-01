@@ -7,13 +7,13 @@
 #### Front-end Developer Nanodegree projects & exercises(progress):
 
 ###### Web Foundations
-- [x] **Project 0** - Animal Trading Card
+- [x] **Project 0** - Website Mockup
   - code
   - preview
 - [x] **Project 1** - Animal Trading Card
   - code
   - preview
-- [x] **Project 2** - Build Portfolio Site
+- [] **Project 2** - Build Portfolio Site
   - code
   - preview
 ###### Web Programming with JavaScript  
