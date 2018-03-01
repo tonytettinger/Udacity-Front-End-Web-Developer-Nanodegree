@@ -1,0 +1,52 @@
+/* --- General --- */
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    color: #414042;
+    background-color: #d9d3df;
+  }
+
+  .contentarea{
+    background-color: white;
+    width: 900px;
+    margin: 0 auto;
+}
+
+ 
+  .head {
+      display: flex;
+      flex: 1;
+      border-bottom: solid black;
+      height: 120px;
+  }
+
+  .headings{
+      width: 70%;
+    text-align: right;
+      align-self: center;
+      line-height: 0.5;
+      margin: 15px 60px 15px auto;
+    }
+
+  .kiwi {
+      width: 30%;
+      background-color: white;
+      align-self: stretch;
+      margin: 15px 0;
+  }
+
+.main {
+    background: white;
+}
+header, main {
+    width: 900px;
+    margin: 0 auto;
+  }
