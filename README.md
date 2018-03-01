@@ -13,7 +13,7 @@
 - [x] **Project 1** - Animal Trading Card
   - code
   - preview
-- [] **Project 2** - Build Portfolio Site
+- [ ] **Project 2** - Build Portfolio Site
   - code
   - preview
 ###### Web Programming with JavaScript  
