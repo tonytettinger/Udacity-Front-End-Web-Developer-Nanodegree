@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    max-height: 400px;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.container > div {
+    flex: 1 1 900px;
+}
+
+.container > div > .keyboard {
+    width: 30%;
+    height: 100%;
+}
+
+.container > div > .coding {
+    width: 70%;
+    height: 100%;
+}
