@@ -1,0 +1,96 @@
+body{
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    max-height: 200px;
+    margin-left: 160px;
+    margin-right: 160px;
+    border: black solid;
+    justify-content: space-between;
+}
+
+.container > div {
+    padding: 20px;
+}
+
+.container > div > img {
+    width: 100%;
+    height: 100%;
+}
+.udacity{
+    object-fit: contain;
+}
+.div1 {
+    flex: 1 1 100%;
+    height: 70px;
+    width: 70px;
+    align-self: center;
+}
+.div2{
+    flex: 1 1 100%;
+    padding: 50px;
+}
+.div3 {
+    flex: 1 1 100%;
+    align-self: center;
+    padding: 15px;
+    margin: 14px;
+}
+
+.name {
+    text-align: right;
+    font-size: 40px;
+}
+
+.title{
+    font-size: 20px;
+    text-align: right;
+}
+
+.profile {
+max-width: 15rem;
+  vertical-align: middle;
+  object-fit: contain;
+ 
+}
+
+main{
+    
+}
+
+.herocont{
+    display: flex;
+    max-height: 200px;
+    margin-left: 160px;
+    margin-right: 160px;
+    border: black solid;
+    justify-content: center;
+}
+
+.heroimg {
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+}
+
+.projectcontainer{
+    display: flex;
+    max-height: 200px;
+    margin-left: 160px;
+    margin-right: 160px;
+    border: black solid;
+    justify-content: center;
+}
+
+.projectcontainer > img {
+    object-fit: contain;
+    width: 100%;
+}
+
+footer {
+    background-color: slategrey;
+    background: salmon;
+    height: 100px;
+}
