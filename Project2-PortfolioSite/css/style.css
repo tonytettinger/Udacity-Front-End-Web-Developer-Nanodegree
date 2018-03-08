@@ -9,16 +9,22 @@ html {
 body {
   font-family: sans-serif;
   margin: 0;
-  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+background: -moz-linear-gradient(123deg, rgba(32,53,87,1) 0%, rgba(32,53,87,1) 2%, rgba(255,255,255,1) 10%, rgba(135,191,255,1) 66%, rgba(0,179,179,1) 75%, rgba(255,255,255,1) 83%, rgba(255,255,255,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(17%, rgba(255,255,255,1)), color-stop(25%, rgba(0,179,179,1)), color-stop(34%, rgba(135,191,255,1)), color-stop(90%, rgba(255,255,255,1)), color-stop(98%, rgba(32,53,87,1)), color-stop(100%, rgba(32,53,87,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(123deg, rgba(32,53,87,1) 0%, rgba(32,53,87,1) 2%, rgba(255,255,255,1) 10%, rgba(135,191,255,1) 66%, rgba(0,179,179,1) 75%, rgba(255,255,255,1) 83%, rgba(255,255,255,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(123deg, rgba(32,53,87,1) 0%, rgba(32,53,87,1) 2%, rgba(255,255,255,1) 10%, rgba(135,191,255,1) 66%, rgba(0,179,179,1) 75%, rgba(255,255,255,1) 83%, rgba(255,255,255,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(123deg, rgba(32,53,87,1) 0%, rgba(32,53,87,1) 2%, rgba(255,255,255,1) 10%, rgba(135,191,255,1) 66%, rgba(0,179,179,1) 75%, rgba(255,255,255,1) 83%, rgba(255,255,255,1) 100%); /* ie10+ */
+background: linear-gradient(327deg, rgba(32,53,87,1) 0%, rgba(32,53,87,1) 2%, rgba(255,255,255,1) 10%, rgba(135,191,255,1) 66%, rgba(0,179,179,1) 75%, rgba(255,255,255,1) 83%, rgba(255,255,255,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#203557',GradientType=0 ); /* ie6-9 */
 }
-
 
 .container{
     display: flex;
     max-height: 200px;
     margin-left: 160px;
     margin-right: 160px;
-    border: black solid;
+    border-bottom: grey solid;
+    margin-bottom: 25px;
     justify-content: center;
 }
 
@@ -34,8 +40,9 @@ body {
     object-fit: contain;
 }
 .div1 {
-    flex: 0 0 150px;
+    flex: 0 0 120px;
     align-self: center;
+    margin-left: 50px;
 }
 .div2{
     flex: 0 1 100px;
@@ -55,9 +62,15 @@ body {
 
 .div5{
     flex: 1;
-    position: relative;
-top: 50%;
-transform: translateY(-50%);
+}
+
+.span{
+  flex:1;
+  text-align: left;
+}
+.nest {
+    flex: 1;
+    display: flex;
 }
 
 .name {
@@ -79,18 +92,14 @@ max-width: 15rem;
 
 
 .herocont{
-    display: flex;
+    display: inline-flex;
     height: 400px;
     margin-left: 160px;
     margin-right: 160px;
-    border: black solid;
-    justify-content: center;
-    
+    justify-content: flex-start;
 }
 
 .heroimg {
-    object-fit: contain;
-    height: 100%;
 }
 
 .projectcontainer{
@@ -107,8 +116,3 @@ max-width: 15rem;
     width: 100%;
 }
 
-footer {
-    display: flex;
-    background: salmon;
-    min-height: 100vh;
-}
