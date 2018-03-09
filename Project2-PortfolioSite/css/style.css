@@ -10,8 +10,13 @@ html {
 
 body {
     font-family: sans-serif;
-    margin: 0 auto;
     max-width: 1000px;
+     height: auto;
+  margin: 5vh auto 5vh auto;
+  border:10px solid rgba(0,0,0,0.8);
+  border-bottom-width: 70px;
+  border-radius:10px;
+  box-shadow:0 0 50px  rgba(0,0,0,0.3);
 }
 
 main {
@@ -20,35 +25,38 @@ main {
 
 .container {
     display: flex;
-    max-height: 200px;
     border-bottom: 3px grey solid;
     margin-bottom: 25px;
     justify-content: center;
 }
 
-.container > div {
-    padding: 20px;
+.container2 {
+    display: inline-flex;
+    max-height: 200px;
+    border-bottom: 3px grey solid;
+    padding-bottom: 25px;
+    justify-content: center;
 }
 
-.container > div > img {
-    width: 100%;
-    height: 100%;
-}
 
 .udacity {
-    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
+    padding: 15px 0;
 }
 
 .div1 {
     flex: 0 0 120px;
     align-self: center;
     margin-left: 50px;
+    text-align: center;
 }
 
 .div2 {
-    flex: 0 1 100px;
-    padding: 50px;
-    margin: 14px;
+    flex: 0 1 250px;
+    border: 1px solid black;
+    margin: 10px;
+    text-align: center;
 }
 
 .div3 {
@@ -58,13 +66,13 @@ main {
     margin: 14px;
 }
 
-
-
-.div5 > li {
-    margin: 0;
-    text-align: center;
+.div2 > img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    padding: auto;
+    margin: auto;
 }
-
 
 .name {
     text-align: right;
@@ -79,34 +87,36 @@ main {
 
 .herocont {
     display: flex;
-    height: 400px;
-    justify-content: flex-start;
+    max-height: 300px;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .div4 {
-
-    flex: 1 1 33%;
-    object-fit: cover;
+    padding-left: 30px;
+    flex: 1 1 30%;
+    
+        min-width: 411px;
 }
 
 .div5 {
-    flex 1 1 66%;
-    display: flex;
+    flex: 1 1 40%;
     flex-direction: column;
     list-style: none;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 
 }
 
 .heroimg {
-    width: 100%;
-    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
     object-fit: contain;
-
+    border-radius: 4px;
+  box-shadow:0 0 50px  rgba(0,0,0,0.3);
 }
+
+
 
 .projectcontainer {
     display: flex;
@@ -121,5 +131,53 @@ main {
 
 .text {
     text-align: center;
-    margin: 20px;
+    margin: 10px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+@media all and (max-width: 565px) {
+    
+    
+    .container {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .title{
+        text-align: center;
+        
+    }
+    .div1 {
+        margin-left: 0;
+        flex: 1 1 120px;
+    }
+    .name{
+        text-align: center;
+    }
+    
+    .div3 {
+        padding: 0;
+        margin: 0;
+    }
+    .div4{
+        flex-basis: 100%;
+        padding: 1px;
+        min-width: 0;
+        max-width: 411px;
+    }
+    .herocont{
+        flex-wrap: wrap;
+        margin-bottom:50px;
+        padding-bottom: 50px;
+        max-height: 100%;
+    }
+    .udacity {
+        max-width: 80px; 
+        }
+    .heroimg {
+    }
+}
 }
