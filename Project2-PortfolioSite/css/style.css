@@ -56,7 +56,10 @@ main {
     flex: 0 1 250px;
     border: 1px solid black;
     margin: 10px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .div3 {
@@ -70,8 +73,7 @@ main {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-    padding: auto;
-    margin: auto;
+  
 }
 
 .name {
@@ -88,24 +90,28 @@ main {
 .herocont {
     display: flex;
     max-height: 300px;
+    margin-top: 10px;
     justify-content: center;
-    align-items: center;
-
 }
 
 .div4 {
     padding-left: 30px;
-    flex: 1 1 30%;
-    
-        min-width: 411px;
+    flex: 1 1 50%;
+    min-width: 411px;
+    max-height: 100%;
 }
 
 .div5 {
     flex: 1 1 40%;
     flex-direction: column;
-    list-style: none;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+
+.div6 {
+    list-style-image: url('img/checkmark.gif');
 }
 
 .heroimg {
@@ -168,6 +174,10 @@ footer{
         min-width: 0;
         max-width: 411px;
     }
+    
+    .div5{
+        text-align: left;
+    }
     .herocont{
         flex-wrap: wrap;
         margin-bottom:50px;
@@ -177,7 +187,10 @@ footer{
     .udacity {
         max-width: 80px; 
         }
-    .heroimg {
+    .herocont{
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
+    
 }
 }
