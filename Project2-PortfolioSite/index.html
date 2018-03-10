@@ -6,82 +6,90 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Anton|Lato|Ubuntu" rel="stylesheet">
 </head>
 
 <body>
-    <header class="container">
-        <div class="div1">
-            <img class="udacity" src="img/udacity.svg">
+    <header class="header">
+        <div class="header__logo">
+            <img class="header__logo__udacityimg" src="img/udacity.svg" alt="Logo of Udacity">
         </div>
 
-        <div class="div3">
-            <div class="name">
-                Tettinger Antal Adam
-            </div>
-            <div class="title">
+        <div class="header__title">
+            <h1 class="header__name">
+                Antal 'Tony' Tettinger
+            </h1>
+            <h3 class="header__title">
                 Web Developer Ninja
-            </div>
+            </h3>
         </div>
     </header>
 
 
     <main>
-        <div class="herocont">
-            <div class="div4">
-                <img class="heroimg" src="img/webdesign.jpg">
+        <div class="mainarea">
+            <div class="mainarea__hero">
+                <img class="mainarea__hero__img" src="img/webdesign.jpg" alt="Web Design Picture">
             </div>
-            <div class="div5">
-            <h3>Skills</h3>
-                <ul class="div6">
+            <div class="mainarea__skills">
+            <h2>Skills</h2>
+                <ul class="mainarea__skills__list">
                     <li>
                         <strong>Web design</strong>
                     </li>
 
                     <li>
-                        CSS3
+                        <strong>CSS3</strong>
                     </li>
 
                     <li>
-                        HTML5
+                        <strong>HTML5</strong>
                     </li>
                     <li>
-                        JavaScript
+                        <strong>JavaScript</strong>
                     </li>
                     <li>
-                        PHP
+                        <strong>PHP</strong>
                     </li>
                     <li>
-                        React   
+                        <strong>React</strong>   
                     </li>
                     <li>
-                        React Native
+                        <strong>React Native</strong>
                     </li>
                     </div>
                 </ul>
-                </div>
-        <div class="text">
-            Projects
             </div>
-        <div class="container2">
+        
+        <h2 class="project_title">
+            Projects
+        </h2>
+        
+        <div class="mainarea__projects">
          
-            <div class="div2">
-                <img src="img/github.png">
+            <div class="mainarea__projects__project">
+                <img src="img/github.png" alt="GitHub Logo">
                 <a href="https://github.com/tonytettinger">GitHub</a>
             </div>
-            <div class="div2">
-                <img src="img/codepen1.svg">
+            <div class="mainarea__projects__project">
+                <img src="img/hcj.png" alt="GitHub">
+                <a href="https://github.com/tonytettinger">GitHub</a>
+            </div>
+            <div class="mainarea__projects__project">
+                <img src="img/codepen1.svg" alt="CodePen Logo"> 
                 <a href="https://codepen.io/tonique/">CodePen</a>
                 </div>
         </div>
     </main>
 
     <footer>
-        <span>
-        email: antal.tettinger@gmail.com
-        </span>
+        
+        <a href="mailto:antal.tettinger@gmail.com">Email: antal.tettinger@gmail.com </a>
+        
+        <img src="img/ninja.svg" class="footerninja" alt="ninja smiley">
         
         <span>
-        Phone: 536254242
+        Phone: +36-30-227-6-228
         </span>
 
     </footer>
