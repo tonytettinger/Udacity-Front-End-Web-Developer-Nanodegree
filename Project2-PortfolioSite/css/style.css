@@ -11,9 +11,9 @@ html {
 body {
     max-width: 1000px;
     height: auto;
-    margin: 5vh auto 5vh auto;
+    margin: 1vh auto 5vh auto;
     border: 10px solid rgba(0, 0, 0, 0.8);
-    border-bottom-width: 70px;
+    border-bottom-width: 50px;
     border-radius: 10px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
     font-family: "Lato", sans-serif;
@@ -59,7 +59,7 @@ h3 {
     display: inline-flex;
     max-height: 200px;
     border-bottom: 3px grey solid;
-    padding-bottom: 25px;
+    padding-bottom: 5px;
     justify-content: center;
 }
 
@@ -164,6 +164,10 @@ li:nth-child(even) {
     margin-top: 20px;
 }
 
+.mainarea__projects{
+    display: flex;
+}
+
 .mainarea__projects__project {
     flex: 0 1 250px;
     margin: 10px;
@@ -191,7 +195,7 @@ footer {
     max-width: 100%;
     flex: 0 1 20px;
 }
-@media all and (max-width: 572px) {
+@media all and (max-width: 588px) {
 
 
     .header {
@@ -210,6 +214,10 @@ footer {
     }
     .header__name {
         text-align: center;
+    }
+    
+    .header__logo__udacityimg {
+        max-width: 80px;
     }
 
     .mainarea {
@@ -231,10 +239,10 @@ footer {
 
     .mainarea__skills {
     }
-
-    .header__logo__udacityimg {
-        max-width: 80px;
-    }
+    
+    .mainarea__projects{
+    align-items: flex-end;
+}
 
     footer {
         flex-direction: column;
