@@ -1,0 +1,113 @@
+body {
+    text-align: center;
+    background-color: greenyellow;
+}
+
+h1 {
+    font-family: Monoton;
+    font-size: 70px;
+    margin: 0.2em;
+}
+
+h2 {
+    margin: 1em 0 0.25em;
+}
+
+h2:first-of-type {
+    margin-top: 0.5em;
+}
+
+table,
+tr,
+td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+input[type=number] {
+    width: 6em;
+    
+}
+
+input[type=number]:focus {
+    background-color: lightskyblue;
+}
+
+.controls{
+    font-family: "Lucida Bright", cursive, sans-serif;
+}
+.bgwhite{
+    background-color: white;
+}
+td:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=1635), auto;
+}
+
+.text-content{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-100%);
+    width: 100%;
+    text-align: center;
+}
+
+.eraser{
+    background-color: dimgrey; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.gridDefine{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-2%);
+    width: 100%;
+    text-align: center;
+}
+
+#sizePicker{
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: auto;
+    display: block;
+    margin: auto;
+    font-family:  "Lucida console", cursive, sans-serif;
+}
+.eraseron{
+    background-color: orangered;
+}
+#gridSubmit{
+    background-color: mediumblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+}
+.btngroup{
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+}

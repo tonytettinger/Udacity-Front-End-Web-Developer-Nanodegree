@@ -1,0 +1,62 @@
+.factList span {
+  font-weight: bold;
+} 
+
+.card {
+  border: 2px solid;
+  border-radius: 10px;
+  width: 330px;
+  margin: auto;
+  background-color: #08c;
+
+     -webkit-box-shadow: 10px 10px 24px 5px rgba(0,0,0,0.75);
+     -moz-box-shadow: 10px 10px 24px 5px rgba(0,0,0,0.75);
+     box-shadow: 10px 10px 24px 5px rgba(0,0,0,0.75);
+}
+
+.nameOfAnimal {
+  box-sizing: border-box;
+  padding: 5px;
+  margin: auto;
+  border-bottom: 2px solid;
+  font-style: oblique;
+  font-family: 'Advent Pro', cursive, sans-serif;
+  font-size: 1.4em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.pictureOfAnimal {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 2px solid #5e5e5e;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-color: #696969;
+}
+
+.insideBox {
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid;
+  width: 300px;
+  padding: 0px 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+ .interesting {
+  font-style: italic;
+}
+
+.factList {
+  list-style: none;
+  padding: 0px;
+  font-size: 0.91em;
+  text-align: left;
+}

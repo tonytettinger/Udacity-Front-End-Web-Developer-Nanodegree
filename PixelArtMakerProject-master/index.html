@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pixel Art Maker!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+        <img src="https://1onjea25cyhx3uvxgs4vu325-wpengine.netdna-ssl.com/wp-content/themes/udacity_wp_1_8/images/udacity_mark.png" width="800px" height="=300px" alt="Udacity Logo - No Background">
+        <h1 class='text-content'>Lab: Pixel Art Maker</h1>
+        
+    <div class="gridDefine">
+        <h2>Choose Grid Size</h2>
+
+        <form id="sizePicker">
+            Grid Height:
+            <input type="number" id="input_height" name="height" min="1" value="1">
+            Grid Width:
+            <input type="number" id="input_width" name="width" min="1" value="1">
+                <div class="btngroup">
+                    <input type="submit" id="gridSubmit" class="button" value="Create Grid">
+                    <button id="eraserButton" class="eraser button">Eraser: OFF</button>
+                </div>
+        </form>
+    
+        <h2>Pick A Color</h2>
+
+        <input type="color" id="colorPicker">
+    
+    <h2>Design Canvas</h2>
+    <table id="pixel_canvas"></table>
+    
+    </div>
+    
+    <script src="designs.js"></script>
+    
+</body>
+</html>
