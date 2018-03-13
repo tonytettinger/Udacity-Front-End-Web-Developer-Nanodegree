@@ -9,8 +9,8 @@ Udacity project log
 ###### Web Foundations
 - [x] **Project 1** - Animal Trading Card
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project1-AnimalTradingCards)
-  - [preview](http://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project1-AnimalTradingCards/index.html)
-- [ ] **Project 2** - Build a Portfolio Site
+  - [preview](http://tonytettinger.github.io/Udacity-FEND-NanoDegree/blob/master/Project1-AnimalTradingCards/index.html)
+- [x] **Project 2** - Build a Portfolio Site
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project2-PortfolioSite)
   - [preview](http://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project2-PortfolioSite/index.html)
 ###### Web Programming with JavaScript  
@@ -22,7 +22,7 @@ Udacity project log
   - code
   - preview
 ###### Exploring JS - Objects, Tools and Testing  
-- [ ] **Project 4** - Clasic Arcade Game Clone
+- [ ] **Project 4** - Classic Arcade Game Clone
   - code
   - preview
 - [ ] **Project 5** - Feed Reader Testing
