@@ -9,7 +9,7 @@ Udacity project log
 ###### Web Foundations
 - [x] **Project 1** - Animal Trading Card
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project1-AnimalTradingCards)
-  - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Project1-AnimalTradingCards/index.html)
+  - [preview](http://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project1-AnimalTradingCards/index.html)
 - [ ] **Project 2** - Build a Portfolio Site
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project2-PortfolioSite)
   - [preview](http://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project2-PortfolioSite/index.html)
@@ -17,7 +17,7 @@ Udacity project log
 
 - [x] Exercise 2_22- Pixel Art Maker
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Exercise-2_22-PixelArtMakerProject)
-  - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Exercise-2_22-PixelArtMakerProject.index.html)
+  - [preview](http://tonytettinger.github.io/Udacity-FEND-NanoDegree/Exercise-2_22-PixelArtMakerProject/index.html)
 - [ ] **Project 3** - Memory Game
   - code
   - preview
