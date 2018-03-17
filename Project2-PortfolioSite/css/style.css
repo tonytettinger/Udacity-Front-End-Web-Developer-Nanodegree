@@ -31,7 +31,7 @@ h3 {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1em;
     line-height: 1.25em;
     margin-top: 0.3rem;
 }
@@ -109,10 +109,10 @@ h3 {
 
 .mainarea__hero {
     padding-left: 30px;
+    display: flex;
     flex: 1 1 40%;
     min-width: 411px;
     max-height: 100%;
-    display: flex;
     align-content: center;
 }
 
@@ -149,7 +149,7 @@ h3 {
     font-size: 1.3rem;
     font-weight: 600;
     font-family: "Anton", sans-serif;
-    padding: 0; 
+    padding: 0;
 }
 
 li{
@@ -216,27 +216,34 @@ footer > * {
 }
 @media all and (max-width: 712px) {
 
-
     .header {
         flex-wrap: wrap;
         height: auto;
     }
     .header__title {
         text-align: center;
-        padding: 0;
+        padding: 10px;
         margin: 0;
-
+        font-size: 12px;
     }
+
+    .header__name {
+        text-align: right;
+        font-size: 24px;
+    }
+    
     .header__logo {
         margin-left: 0;
-        flex: 1 1 120px;
+        flex: 1 1 20px;
     }
     .header__name {
         text-align: center;
     }
     
     .header__logo__udacityimg {
-        max-width: 80px;
+        max-width: 40px;
+        padding-bottom: 0;
+        padding-top: 10px;
     }
 
     .mainarea {
@@ -247,20 +254,46 @@ footer > * {
         flex-direction: column;
         padding-bottom: 0;
         margin-bottom: 0;
-        align-content: center;
+        align-items: center;
+        justify-content: center;
     }
 
     .mainarea__hero {
-        flex-basis: 100%;
+        display: block;
         padding: 1px;
         min-width: 0;
         max-width: 411px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .mainarea__hero__img {
+        object-fit: contain;
+    }
+    
+    .mainarea__skills > h2 {
+        font-size: 25px;
+    } 
+
+    .mainarea__skills__list {
+        font-size: 1.1rem;
+    }
+    .mainarea__motto > p {
+        font-size: 15px;
+        padding-right: 5px;
     }
 
     
     .mainarea__projects{
     align-items: flex-end;
-}
+    }
+    .project_title {
+        font-size: 25px;
+    }
+    .mainarea__projects {
+        align-items: flex-end;
+        font-size: 15px;
+        }
 
     footer {
         flex-direction: column;
