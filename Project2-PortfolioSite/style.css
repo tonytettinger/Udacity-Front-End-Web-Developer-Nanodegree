@@ -1,22 +1,21 @@
 .container {
     display: flex;
-    max-height: 400px;
-    max-width: 900px;
-    margin: 0 auto;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
+    border: saddlebrown solid;
+    height: 200px;
 }
 
 .container > div {
-    flex: 1 1 900px;
+    flex: 1 1 100%;
+    padding: 20px;
 }
 
-.container > div > .keyboard {
-    width: 30%;
+.container > div > img {
+    width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
-.container > div > .coding {
-    width: 70%;
-    height: 100%;
+.tutti{
+    width: 800px;
+    margin: 0 auto;
 }
