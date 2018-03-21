@@ -1,47 +1,41 @@
 /*
  * Create a list that holds all of your cards
  */
-var listOfCards, shuffledListOfCards, listOfOpenCards;
+var listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards;
 
+//list of 16 elements, representing the 16 cards, the numbers 1-8 represent the 8 different figures (2 of each)
 listOfCards= [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 listOfOpenCards = [];
-
 
  //shuffle function
  var shuffle = function() {
  shuffledListOfCards = shuffleCards(listOfCards);
  return shuffledListOfCards;
  }
+//function intializing when the page starts
+ shuffle();
 
 //defining variables containing the font awesome classes for the 8 different card types
+const figures = 
+["fa-leaf", "fa-bicycle",
+ "fa-diamond", "fa-bomb",
+ "fa-bolt", "fa-anchor", 
+ "fa-paper-plane-o", "fa-cube"]
 
-const figure1 = "fa-leaf";
-const figure2 = "fa-bicycle";
-const figure3 = "fa-diamond";
-const figure4 = "fa-bomb";
-const figure5 = "fa-bolt";
-const figure6 = "fa-anchor";
-const figure7 = "fa-paper-plane-o";
-const figure8 = "fa-cube";
+//the array of the randomly shuffled figures
+mappedListOfCards = shuffledListOfCards.map(x => figures[x-1]);
+console.log('mappedListOfCards: ', mappedListOfCards);
+console.log(shuffledListOfCards);
 
-//list of card id's stored in variables
-
-
-// loop function: loops through each card's ID and assign them the corresponding images to the randomly shuffled numbers (each number represents one shape)
+// Loops through each card's ID and assign them the corresponding images/figures
 
 var assignCardPictures = function() {
     for(i=1; i <= shuffledListOfCards.length; i++) {
         let currentCard = document.getElementById('card' + i);
-        figureString = 'figure' + shuffledListOfCards[i];
-        figureAsVariable = "\"" + eval(figureString) + "\"";
-        console.log(figureAsVariable);
-        currentCard.classList.add(figureAsVariable);
+        console.log(currentCard);
+        currentCard.classList.add("fa", mappedListOfCards[i]);
     }
 }
-shuffle();
-var figureString = 'figure' + shuffledListOfCards[0];
-
-console.log(eval(figureString));
 
 assignCardPictures();
 
