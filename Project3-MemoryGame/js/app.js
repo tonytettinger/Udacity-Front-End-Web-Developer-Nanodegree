@@ -1,13 +1,8 @@
 /*
  * Create a list that holds all of your cards
  */
-<<<<<<< HEAD
 var listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, moveCounter, card;
 console.log(listOfOpenCards)
-=======
-var listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards;
-
->>>>>>> parent of 3a00cf0... Event Listener on click show card function
 //list of 16 elements, representing the 16 cards, the numbers 1-8 represent the 8 different figures (2 of each)
 listOfCards= [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 listOfOpenCards = [];
@@ -18,48 +13,33 @@ console.log(listOfOpenCards)
  return shuffledListOfCards;
  }
 //function intializing when the page starts
-<<<<<<< HEAD
 shuffle(); 
 moveCounter = 0;
-=======
- shuffle();
->>>>>>> parent of 3a00cf0... Event Listener on click show card function
 
 //defining variables containing the font awesome classes for the 8 different card types
 const figures = 
 ["fa-leaf", "fa-bicycle",
  "fa-diamond", "fa-bomb",
  "fa-bolt", "fa-anchor", 
- "fa-paper-plane-o", "fa-cube"]
+ "fa-paper-plane-o", "fa-cube"];
 
 //the array of the randomly shuffled figures
 mappedListOfCards = shuffledListOfCards.map(x => figures[x-1]);
 console.log('mappedListOfCards: ', mappedListOfCards);
 console.log(shuffledListOfCards);
 
-// Loops through each card's ID and assign them the corresponding images/figures
-
-var assignCardPictures = function() {
+// Loops through each card's ID and assign them the corresponding figure class to it's HTML.
+function assignCardPictures() {
     for(i=1; i <= shuffledListOfCards.length; i++) {
         let currentCard = document.getElementById('card' + i);
         console.log(currentCard);
         currentCard.classList.add("fa", mappedListOfCards[i]);
     }
-}
+};
+
 
 assignCardPictures();
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-
- /*
-After shuffling give each list element an id and loop over those list elements with the use of the id's giving each of them a font awesome class based on the shuffled order, each number should be related to one font awesome class. Before the looping starts there should be an HTML structure in place with ordered id's, preferably 1 to 16, then in the end of the looping based on the shuffled affignment each card should have a random class assigned to it.
- */
+ 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffleCards(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -80,7 +60,6 @@ var deck;
 deck = document.querySelector(".deck");
 
 //add classes to elements
-<<<<<<< HEAD
 //var d = document.getElementById("div1");
 //d.className += " otherclass";
 
@@ -112,17 +91,11 @@ deck.addEventListener('click', function(evt) {
         }
     }
 })
-=======
-var d = document.getElementById("div1");
-d.className += " otherclass";
-
-
-
->>>>>>> parent of 3a00cf0... Event Listener on click show card function
 /*
  * set up the event listener for a card. If a card is clicked:
- * 
- *  - display the card's symbol (put this functionality in another function that you call from this one)
+*/
+
+ /*  - display the card's symbol (put this functionality in another function that you call from this one)
  * 
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  * 
@@ -136,3 +109,16 @@ d.className += " otherclass";
  * 
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+
+
+function countTimer() {
+    startTime = setInterval(() => {
+        time.innerText = minutes + ' : ' + seconds;
+        seconds++;
+        if (seconds == 60) {
+            minutes++;
+            seconds = 0;
+        }
+    }, 1000);
+}
