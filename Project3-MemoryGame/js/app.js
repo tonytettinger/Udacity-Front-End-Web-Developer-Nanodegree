@@ -1,12 +1,12 @@
 /*
  * Create a list that holds all of your cards
  */
-var listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, card;
-
+var listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, moveCounter, card;
+console.log(listOfOpenCards)
 //list of 16 elements, representing the 16 cards, the numbers 1-8 represent the 8 different figures (2 of each)
 listOfCards= [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 listOfOpenCards = [];
-
+console.log(listOfOpenCards)
  //shuffle function
  var shuffle = function() {
  shuffledListOfCards = shuffleCards(listOfCards);
@@ -14,6 +14,7 @@ listOfOpenCards = [];
  }
 //function intializing when the page starts
 shuffle(); 
+moveCounter = 0;
 
 //defining variables containing the font awesome classes for the 8 different card types
 const figures = 
@@ -66,7 +67,28 @@ var cards = document.querySelectorAll('.card');
 console.log(cards);
 deck.addEventListener('click', function(evt) {
     if(evt.target.nodeName === 'LI'){
-        evt.target.classList.add("open", "show");
+        const cardClass = evt.target.firstElementChild.className;
+        const cardStatus = evt.target.classList;
+        cardStatus.add("open", "show");
+        listOfOpenCards.push(cardClass);
+        if(listOfOpenCards.length == 2) {
+    /*        if(listOfOpenCards[0] === listOfOpenCards[1]) {
+                cardStatus.add("match");
+                cardStatus.remove("open", "show");
+            } else {
+                cardStatus.remove("open", "show");
+            } */
+            console.log(listOfOpenCards);
+            const openCards = document.getElementsByClassName("open");
+            console.log(openCards.item(0));
+            
+            setTimeout(function() {
+            openCards.item(0).classList.remove("open", "show");
+            openCards.item(0).classList.remove("open", "show");
+            },700);
+
+            
+        }
     }
 })
 /*
