@@ -1,12 +1,12 @@
 /*
  * Create a list that holds all of your cards
  */
-var listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, moveCounter, card;
-console.log(listOfOpenCards)
+var listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, moveCounter, matchCounter, card;
+
 //list of 16 elements, representing the 16 cards, the numbers 1-8 represent the 8 different figures (2 of each)
 listOfCards= [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 listOfOpenCards = [];
-console.log(listOfOpenCards)
+
  //shuffle function
  var shuffle = function() {
  shuffledListOfCards = shuffleCards(listOfCards);
@@ -15,7 +15,7 @@ console.log(listOfOpenCards)
 //function intializing when the page starts
 shuffle(); 
 moveCounter = 0;
-
+matchCounter = 0;
 //defining variables containing the font awesome classes for the 8 different card types
 const figures = 
 ["fa-leaf", "fa-bicycle",
@@ -33,7 +33,7 @@ function assignCardPictures() {
     for(i=1; i <= shuffledListOfCards.length; i++) {
         let currentCard = document.getElementById('card' + i);
         console.log(currentCard);
-        currentCard.classList.add("fa", mappedListOfCards[i]);
+        currentCard.classList.add("fa", mappedListOfCards[i-1]);
     }
 };
 
@@ -65,31 +65,63 @@ deck = document.querySelector(".deck");
 
 var cards = document.querySelectorAll('.card');
 console.log(cards);
+
+var tempEventTarget = 0;
 deck.addEventListener('click', function(evt) {
-    if(evt.target.nodeName === 'LI'){
+    if(evt.target.nodeName === 'LI' && tempEventTarget !== evt.target){
+        tempEventTarget = evt.target;
+        evt.target.classList.add("open", "show");
+        moveCounter++;
         const cardClass = evt.target.firstElementChild.className;
         const cardStatus = evt.target.classList;
         cardStatus.add("open", "show");
         listOfOpenCards.push(cardClass);
-        if(listOfOpenCards.length == 2) {
-    /*        if(listOfOpenCards[0] === listOfOpenCards[1]) {
-                cardStatus.add("match");
-                cardStatus.remove("open", "show");
-            } else {
-                cardStatus.remove("open", "show");
-            } */
-            console.log(listOfOpenCards);
+        
+        
+        if(listOfOpenCards.length === 2) {
+        const openCards = document.getElementsByClassName("open");
+
+            if(listOfOpenCards[0] === listOfOpenCards[1]) {
+                console.log('TRRUEEEEE');
+                setTimeout(function() {
+                    openCards.item(0).classList.add("match");
+                    openCards.item(1).classList.add("match");
+                    openCards.item(0).classList.remove("open", "show");
+                    openCards.item(0).classList.remove("open", "show");
+                    },700);
+                    matchCounter++;
+                    if(matchCounter === 2) {
+                        swal("Won the game!", {
+                            buttons: {
+                              cancel: "Enough!",
+                              OK: true,
+                            },
+                          })
+                          .then((value) => {
+                            switch (value) {
+                              case "OK":
+                                swal("New Game Starting Right Now");
+                                break;
+                           
+                              default:
+                                swal("Thank you for playing!");
+                            }
+                          });
+                }
+                } else {
+
             const openCards = document.getElementsByClassName("open");
-            console.log(openCards.item(0));
-            
             setTimeout(function() {
             openCards.item(0).classList.remove("open", "show");
             openCards.item(0).classList.remove("open", "show");
             },700);
+            }
+            listOfOpenCards =[];
 
-            
         }
+
     }
+    return tempEventTarget;
 })
 /*
  * set up the event listener for a card. If a card is clicked:
