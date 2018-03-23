@@ -37,11 +37,6 @@ h1 {
  * Styles for the deck of cards
  */
 
-.controlbar{
-    display: flex;
-    justify-content: space-around; 
-}
-
 .deck {
     width: 660px;
     min-height: 680px;
@@ -75,7 +70,7 @@ h1 {
 }
 
 .deck .card.open {
-    transform: rotateY(0);
+    transform: rotateY(0);  
     background: #02b3e4;
     cursor: default;
     
@@ -104,8 +99,6 @@ h1 {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
-    display: flex;
-    justify-content: space-around;
 }
 
 .score-panel .stars {
