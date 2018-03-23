@@ -1,18 +1,18 @@
 /*
  * Create a list that holds all of your cards
  */
-var listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, moveCounter, matchCounter, card, userRating, restartButton;
+let listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, moveCounter, 
+matchCounter, card, userRating, restartButton, minutes, seconds, cardStatus, cardFigure,
+star1, star2, star3, moves, time;
 
-//list of 16 elements, representing the 16 cards, the numbers 1-8 represent the 8 different figures (2 of each)
-listOfCards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
-listOfOpenCards = [];
-let minutes = 0;
-let seconds = 0;
-moveCounter = 0;
-matchCounter = 0;
-userRating = "Jedi Master";
-var cards = document.querySelectorAll('.card');
-var cardo = document.querySelectorAll('i');
+//defining variables containing the font awesome classes for the 8 different card types
+const figures = ["fa-leaf", "fa-bicycle",
+ "fa-diamond", "fa-bomb",
+ "fa-bolt", "fa-anchor",
+ "fa-paper-plane-o", "fa-cube"];
+
+cardStatus = document.querySelectorAll('.card');
+cardFigure = document.querySelectorAll('i');
 
 star1 = document.getElementById("firststar");
 star2 = document.getElementById("secondstar");
@@ -20,37 +20,63 @@ star3 = document.getElementById("thirdstar");
 
 restartButton = document.getElementById("restart");
 moves = document.getElementById("moves");
+time = document.getElementById("time");
 
-//defining variables containing the font awesome classes for the 8 different card types
-const figures = ["fa-leaf", "fa-bicycle",
- "fa-diamond", "fa-bomb",
- "fa-bolt", "fa-anchor",
- "fa-paper-plane-o", "fa-cube"];
+minutes = 0;
+seconds = 0;
+
 //shuffle function
-var shuffle = function () {
+let shuffle = function () {
     shuffledListOfCards = shuffleCards(listOfCards);
     //the array of the randomly shuffled figures
     mappedListOfCards = shuffledListOfCards.map(x => figures[x - 1]);
     return shuffledListOfCards;
-}
-//function intializing when the page starts
-shuffle();
-
-
-
-
-
+};
 
 // Loops through each card's ID and assign them the corresponding figure class to it's HTML.
-function assignCardPictures() {
+let assignCardPictures = function() {
     for (i = 1; i <= shuffledListOfCards.length; i++) {
         let currentCard = document.getElementById('card' + i);
         currentCard.classList.add("fa", mappedListOfCards[i - 1]);
     }
 };
+let countTimer = function() {
+    
+    timer = setInterval(() => {
+        time.innerText = minutes + ' : ' + seconds;
+        seconds++;
+        if (seconds == 60) {
+            minutes++;
+            seconds = 0;
+        }
+    }, 1000);
+}
 
 
-assignCardPictures();
+
+ let startGame = function() {
+    //list of 16 elements, representing the 16 cards, the numbers 1-8 represent the 8 different figures (2 of each)    
+        listOfCards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+        listOfOpenCards = [];
+        cardStatus.forEach(function(item) {
+            item.className = "card";});
+        cardFigure.forEach(function(item) {
+            item.className = ""; });
+        restartButton.className = "fa fa-repeat";
+        shuffle();
+        assignCardPictures();
+        moveCounter = 0;
+        moves.textContent = moveCounter;
+        matchCounter = 0;
+        userRating = "Jedi Master";
+        assignCardPictures();
+        minutes=0;
+        seconds=0;
+        console.log('RESTARTED');
+        };
+
+startGame();
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffleCards(array) {
@@ -72,14 +98,13 @@ function shuffleCards(array) {
 var deck;
 deck = document.querySelector(".deck");
 
-//add classes to elements
-//var d = document.getElementById("div1");
-//d.className += " otherclass";
-
 
 function movesCounter() {
     moveCounter++;
     moves.textContent = moveCounter;
+    if (moveCounter === 1) {
+        countTimer();
+    }
     if (moveCounter >= 49) {
         star3.className = "fa fa-star-o";
         userRating = "Master"
@@ -112,17 +137,20 @@ function winningCheck() {
     matchCounter++;
     console.log('6. winning check has been run');
     if (matchCounter === 1) {
-        swal("You Won the game! Your Rank is:" + userRating, {
+        clearInterval(timer);
+        swal("Congratulations! You Won the game! Your Rank is: " + userRating +
+        " The number of moves took to finish: " + moveCounter + ", and the total time to complete the game is: " +
+        time.textContent, {
                 buttons: {
-                    cancel: "Enough!",
-                    OK: true,
+                    cancel: "Enough is ENOUGH!",
+                    OK: "I want to play again!",
                 },
             })
             .then((value) => {
                 switch (value) {
                     case "OK":
                         swal("New Game Starting Right Now");
-                        restartGame();
+                        startGame();
                         break;
 
                     default:
@@ -147,36 +175,13 @@ function addNotMatchAnimation(){
     openCards[1].classList.add("nomatch");
 };
 
-/*function openCard(evt) {
-    tempEventTarget = evt.target;
-    evt.target.classList.add("open", "show");
-    listOfOpenCards.push(evt.target.firstElementChild.className);
-    console.log('OpenCardEvt');
-}
+function openCard(evt){
+        tempEventTarget = evt.target;
+        evt.target.classList.add("open", "show");
+        listOfOpenCards.push(evt.target.firstElementChild.className);
+    }
 
-function postpone(fun) {
-    window.setTimeout(fun, 0);
-}*/
-function restartGame() {
-    listOfCards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
-    listOfOpenCards = [];
-    cards.forEach(function(item) {
-        item.classList.className = "";});
-    cardo.forEach(function(item) {
-        item.className = ""; });
-    restartButton.className = "fa fa-repeat";
-    shuffle();
-    moveCounter = 0;
-    moves.textContent = moveCounter;
-    matchCounter = 0;
-    userRating = "Jedi";
-    assignCardPictures();
-    minutes=0;
-    seconds=0;
-    console.log('RESTARTED');
-    };
-
-restartButton.addEventListener('click', restartGame);
+restartButton.addEventListener('click', startGame);
 
 
 var clickFunctionsFinished = 'yes';
@@ -185,11 +190,9 @@ var tempEventTarget = 0;
 deck.addEventListener('click', function (evt) {
     if (evt.target.nodeName === 'LI' && tempEventTarget !== evt.target && clickFunctionsFinished === 'yes') {
         console.log('1' + clickFunctionsFinished + 'in the beginning')
-        tempEventTarget = evt.target;
-        evt.target.classList.add("open", "show");
-        listOfOpenCards.push(evt.target.firstElementChild.className);
+        
         console.log('2.Card Opening Happened');
-
+        openCard(evt);
         movesCounter();
 
         if (listOfOpenCards.length === 2) {
@@ -240,16 +243,5 @@ deck.addEventListener('click', function (evt) {
 
 
 
-function countTimer() {
-    
-    startTime = setInterval(() => {
-        time.innerText = minutes + ' : ' + seconds;
-        seconds++;
-        if (seconds == 60) {
-            minutes++;
-            seconds = 0;
-        }
-    }, 1000);
-}
 
-countTimer();
+
