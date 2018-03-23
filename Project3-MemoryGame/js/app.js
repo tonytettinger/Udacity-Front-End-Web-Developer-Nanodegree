@@ -8,17 +8,24 @@ listOfCards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 listOfOpenCards = [];
 let minutes = 0;
 let seconds = 0;
+moveCounter = 0;
+matchCounter = 0;
+userRating = "Jedi Master";
+var cards = document.querySelectorAll('.card');
+var cardo = document.querySelectorAll('i');
+
 star1 = document.getElementById("firststar");
 star2 = document.getElementById("secondstar");
 star3 = document.getElementById("thirdstar");
+
 restartButton = document.getElementById("restart");
+moves = document.getElementById("moves");
 
 //defining variables containing the font awesome classes for the 8 different card types
 const figures = ["fa-leaf", "fa-bicycle",
  "fa-diamond", "fa-bomb",
  "fa-bolt", "fa-anchor",
  "fa-paper-plane-o", "fa-cube"];
-moves = document.getElementById("moves");
 //shuffle function
 var shuffle = function () {
     shuffledListOfCards = shuffleCards(listOfCards);
@@ -28,9 +35,7 @@ var shuffle = function () {
 }
 //function intializing when the page starts
 shuffle();
-moveCounter = 0;
-matchCounter = 0;
-userRating = "Regular";
+
 
 
 
@@ -71,8 +76,6 @@ deck = document.querySelector(".deck");
 //var d = document.getElementById("div1");
 //d.className += " otherclass";
 
-var cards = document.querySelectorAll('.card');
-
 
 function movesCounter() {
     moveCounter++;
@@ -108,8 +111,8 @@ function setMatchClass() {
 function winningCheck() {
     matchCounter++;
     console.log('6. winning check has been run');
-    if (matchCounter === 2) {
-        swal("You Won the game!", {
+    if (matchCounter === 1) {
+        swal("You Won the game! Your Rank is:" + userRating, {
                 buttons: {
                     cancel: "Enough!",
                     OK: true,
@@ -131,11 +134,17 @@ function winningCheck() {
 
 function removeUnmatchedPairs() {
     const openCards = document.querySelectorAll(".open");
-    openCards[0].classList.remove("open", "show");
-    openCards[1].classList.remove("open", "show");
+    openCards[0].classList.remove("open", "show", "nomatch");
+    openCards[1].classList.remove("open", "show", "nomatch");
     clickFunctionsFinished = 'yes';
     console.log(' 5. Click function set to' +clickFunctionsFinished+ 'after unmatched pair of cards detected');
     console.log(clickFunctionsFinished);
+};
+
+function addNotMatchAnimation(){
+    const openCards = document.querySelectorAll(".open");
+    openCards[0].classList.add("nomatch");
+    openCards[1].classList.add("nomatch");
 };
 
 /*function openCard(evt) {
@@ -151,7 +160,11 @@ function postpone(fun) {
 function restartGame() {
     listOfCards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
     listOfOpenCards = [];
-    cards.className = "";
+    cards.forEach(function(item) {
+        item.classList.className = "";});
+    cardo.forEach(function(item) {
+        item.className = ""; });
+    restartButton.className = "fa fa-repeat";
     shuffle();
     moveCounter = 0;
     moves.textContent = moveCounter;
@@ -184,12 +197,14 @@ deck.addEventListener('click', function (evt) {
             console.log('4.a clickfinished function set to' + clickFunctionsFinished +  'after length is 2')
             console.log('4.b Array length is 2.');
             if (listOfOpenCards[0] === listOfOpenCards[1]) {
-
+                
                 setMatchClass();
                 winningCheck();
 
             } else {
-
+                
+                const openCards = document.querySelectorAll(".open");
+                addNotMatchAnimation();
                 setTimeout(removeUnmatchedPairs, 1000);
 
             }
