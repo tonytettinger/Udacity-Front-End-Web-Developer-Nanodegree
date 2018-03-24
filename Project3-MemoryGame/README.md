@@ -12,12 +12,12 @@ Memory game project for Udacity's Front End Web Developer Nanodegree program.
 
 ## Game Description
 
-Have to match 8-8 card pairs to win the game.
+To play the game the play has to match 8-8 card pairs to win the game.
 Game timer starts on click, counts the moves and time.
 In case of finding all the pairs an alert message informs the player of the following:
--number of moves (clicks) used to win the game.
--time in seconds to win the game.
--Rank reached (and corresponding star number).
+* number of moves (clicks) used to win the game.
+* time in seconds to win the game.
+* Rank reached (and corresponding star number).
 
 The player can choose to restart the game or to finish playing.
 
