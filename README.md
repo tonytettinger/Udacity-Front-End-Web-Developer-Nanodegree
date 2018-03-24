@@ -18,9 +18,9 @@ Udacity project log
 - [x] Exercise 2_22- Pixel Art Maker
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Exercise-2_22-PixelArtMakerProject)
   - [preview](http://tonytettinger.github.io/Udacity-FEND-NanoDegree/Exercise-2_22-PixelArtMakerProject/index.html)
-- [ ] **Project 3** - Memory Game
-  - code
-  - preview
+- [x] **Project 3** - Memory Game
+  - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project3-MemoryGame)
+  - [preview](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project3-MemoryGame/index.html)
 ###### Exploring JS - Objects, Tools and Testing  
 - [ ] **Project 4** - Classic Arcade Game Clone
   - code
