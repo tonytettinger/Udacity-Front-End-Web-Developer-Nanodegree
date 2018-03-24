@@ -10,8 +10,10 @@ const figures = ["fa-leaf", "fa-bicycle",
     "fa-paper-plane-o", "fa-cube"
 ];
 
-/*the cardStatus element contains the CSS defining if the card is open, closed or matched, 
-the cardFigure the symbol displayed*/
+/*
+*the cardStatus element contains the CSS defining if the card is open, closed or matched, 
+*the cardFigure the symbol displayed
+*/
 cardStatus = document.querySelectorAll('.card');
 cardFigure = document.querySelectorAll('.card i');
 
@@ -31,7 +33,7 @@ seconds = 0;
 clickFunctionsFinished = 'yes';
 tempEventTarget = 0;
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+//Shuffle function from http://stackoverflow.com/a/2450976
 function shuffleCards(array) {
     var currentIndex = array.length,
         temporaryValue, randomIndex;
@@ -43,12 +45,14 @@ function shuffleCards(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
+    
     return array;
 }
 
-/*Shuffles the array with the numbers representing the cards 1-8 (2 of each total 16) and 
-creates an array containing the randomly ordered classnames for the cards*/
+/*
+*Shuffles the array with the numbers representing the cards 1-8 (2 of each total 16) and 
+*creates an array containing the randomly ordered classnames for the cards
+*/
 let shuffle = function () {
     //shuffle array of numbers
     shuffledListOfCards = shuffleCards(listOfCards);
@@ -105,13 +109,15 @@ startGame();
 
 //Functions for the click event handler attached to the cards
 
-/*Counting and displaying the moves; reducing the number of stars after certain number of moves;
-Sets user rating value based on number of stars:
-Ranks for finding all the matching elements:
-Under 38 steps: Jedi Master - set in start function as default value
-Between 38-44 steps: Master
-Between 44-50 steps: Expert
-Over 50 steps: Apprentice
+/*
+*movesCounter function:
+*Counting and displaying the moves; reducing the number of stars after certain number of moves;
+*Sets user rating value based on number of stars:
+*Ranks for finding all the matching elements:
+*Under 38 steps: Jedi Master - set in start function as default value
+*Between 38-44 steps: Master
+*Between 44-50 steps: Expert
+*Over 50 steps: Apprentice
 */
 
 function movesCounter() {
@@ -152,10 +158,13 @@ function addNotMatchAnimation() {
     openCards[0].classList.add("nomatch");
     openCards[1].classList.add("nomatch");
 };
-/*In case of not matching cards, 
-removes the previously added no-match animation class and re-sets cards to default
-Also sets the clickFunctionFinished value to 'yes' which is a condition to start a new
-click event function*/
+
+/*
+*In case of not matching cards, 
+*removes the previously added no-match animation class and re-sets cards to default
+*Also sets the clickFunctionFinished value to 'yes' which is a condition to start a new
+*click event function
+*/
 
 function removeUnmatchedPairs() {
     const openCards = document.querySelectorAll(".open");
@@ -165,6 +174,7 @@ function removeUnmatchedPairs() {
 };
 
 //Adds classes to show the card and pushes the newly open cards in the related array.
+
 function openCard(evt) {
     tempEventTarget = evt.target;
     evt.target.classList.add("open", "show");
@@ -172,9 +182,12 @@ function openCard(evt) {
 }
 
 
-/*Check if winning condition is reached, in case its true and all pairs are found display message
-detailing how many steps it took to complete the game, the time and offers options to restart or to 
-finish the game*/
+/*
+*Check if winning condition is reached, in case its true and all pairs are found display message
+*detailing how many steps it took to complete the game, the time and offers options to restart or to 
+*finish the game
+*/
+
 function winningCheck() {
     matchCounter++;
     if (matchCounter === 8) {
@@ -205,17 +218,21 @@ function winningCheck() {
 
 restartButton.addEventListener('click', startGame);
 deck.addEventListener('click', function (evt) {
-    /*checking if click is on the right element, 
-    the clicked element is not the one clicked previously and if 
-    the click happens when no click function is running*/
+    /*
+    *checking if click is on the right element, 
+    * the clicked element is not the one clicked previously and if 
+    * the click happens when no click function is running
+    */
     if (evt.target.nodeName === 'LI' && tempEventTarget !== evt.target && clickFunctionsFinished === 'yes') {
 
         openCard(evt);
         movesCounter();
         //if there are two cards in the opened cards array starts checking for matching
         if (listOfOpenCards.length === 2) {
-            /*sets clickFunctionFinished to something other than yes, 
-            so can't start another matching click event while this one is running*/
+            /*
+            *sets clickFunctionFinished to something other than yes, 
+            *so can't start another matching click event while this one is running
+            */
             clickFunctionsFinished = 'you wish';
             if (listOfOpenCards[0] === listOfOpenCards[1]) {
                 setMatchClass();
