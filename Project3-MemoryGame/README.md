@@ -1,5 +1,7 @@
 # Memory Game Project
 
+[Play the game](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project3-MemoryGame/index.html)
+
 ## Table of Contents
 
 * [Instructions](#introduction)
