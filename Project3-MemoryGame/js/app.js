@@ -1,19 +1,21 @@
-/*
- * Create a list that holds all of your cards
- */
-let listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, moveCounter, 
-matchCounter, card, userRating, restartButton, minutes, seconds, cardStatus, cardFigure,
-star1, star2, star3, moves, time;
+//defining variables
+let listOfCards, shuffledListOfCards, mappedListOfCards, listOfOpenCards, moveCounter,
+    matchCounter, card, userRating, restartButton, minutes, seconds, cardStatus, cardFigure,
+    star1, star2, star3, moves, time, clickFunctionsFinished, tempEventTarget, deck;
 
-//defining variables containing the font awesome classes for the 8 different card types
+//defining variables containing the font awesome CSS classes for the 8 different card types
 const figures = ["fa-leaf", "fa-bicycle",
- "fa-diamond", "fa-bomb",
- "fa-bolt", "fa-anchor",
- "fa-paper-plane-o", "fa-cube"];
+    "fa-diamond", "fa-bomb",
+    "fa-bolt", "fa-anchor",
+    "fa-paper-plane-o", "fa-cube"
+];
 
+/*the cardStatus element contains the CSS defining if the card is open, closed or matched, 
+the cardFigure the symbol displayed*/
 cardStatus = document.querySelectorAll('.card');
-cardFigure = document.querySelectorAll('i');
+cardFigure = document.querySelectorAll('.card i');
 
+//selects the three displayed stars that decrease with the number of clicks (highest rating is 3 stars)
 star1 = document.getElementById("firststar");
 star2 = document.getElementById("secondstar");
 star3 = document.getElementById("thirdstar");
@@ -21,62 +23,13 @@ star3 = document.getElementById("thirdstar");
 restartButton = document.getElementById("restart");
 moves = document.getElementById("moves");
 time = document.getElementById("time");
+deck = document.querySelector(".deck");
 
 minutes = 0;
 seconds = 0;
 
-//shuffle function
-let shuffle = function () {
-    shuffledListOfCards = shuffleCards(listOfCards);
-    //the array of the randomly shuffled figures
-    mappedListOfCards = shuffledListOfCards.map(x => figures[x - 1]);
-    return shuffledListOfCards;
-};
-
-// Loops through each card's ID and assign them the corresponding figure class to it's HTML.
-let assignCardPictures = function() {
-    for (i = 1; i <= shuffledListOfCards.length; i++) {
-        let currentCard = document.getElementById('card' + i);
-        currentCard.classList.add("fa", mappedListOfCards[i - 1]);
-    }
-};
-let countTimer = function() {
-    
-    timer = setInterval(() => {
-        time.innerText = minutes + ' : ' + seconds;
-        seconds++;
-        if (seconds == 60) {
-            minutes++;
-            seconds = 0;
-        }
-    }, 1000);
-}
-
-
-
- let startGame = function() {
-    //list of 16 elements, representing the 16 cards, the numbers 1-8 represent the 8 different figures (2 of each)    
-        listOfCards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
-        listOfOpenCards = [];
-        cardStatus.forEach(function(item) {
-            item.className = "card";});
-        cardFigure.forEach(function(item) {
-            item.className = ""; });
-        restartButton.className = "fa fa-repeat";
-        shuffle();
-        assignCardPictures();
-        moveCounter = 0;
-        moves.textContent = moveCounter;
-        matchCounter = 0;
-        userRating = "Jedi Master";
-        assignCardPictures();
-        minutes=0;
-        seconds=0;
-        console.log('RESTARTED');
-        };
-
-startGame();
-
+clickFunctionsFinished = 'yes';
+tempEventTarget = 0;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffleCards(array) {
@@ -94,10 +47,72 @@ function shuffleCards(array) {
     return array;
 }
 
-//select ul list - class = 'deck'
-var deck;
-deck = document.querySelector(".deck");
+/*Shuffles the array with the numbers representing the cards 1-8 (2 of each total 16) and 
+creates an array containing the randomly ordered classnames for the cards*/
+let shuffle = function () {
+    //shuffle array of numbers
+    shuffledListOfCards = shuffleCards(listOfCards);
+    //create array of the randomly shuffled figures based on the array of random numbers
+    mappedListOfCards = shuffledListOfCards.map(x => figures[x - 1]);
+    return shuffledListOfCards;
+};
 
+// Loops through each card's ID and assign them the corresponding figure class to it's HTML.
+let assignCardPictures = function () {
+    for (i = 1; i <= shuffledListOfCards.length; i++) {
+        let currentCard = document.getElementById('card' + i);
+        currentCard.classList.add("fa", mappedListOfCards[i - 1]);
+    }
+};
+
+//Timer functionality
+let countTimer = function () {
+    timer = setInterval(() => {
+        time.innerText = minutes + ' : ' + seconds;
+        seconds++;
+        if (seconds == 60) {
+            minutes++;
+            seconds = 0;
+        }
+    }, 1000);
+}
+
+//Setting starting conditions for the game
+let startGame = function () {
+    //list of 16 elements, representing the 16 cards, the numbers 1-8 represent the 8 different figures (2 of each)    
+    listOfCards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+    listOfOpenCards = [];
+    cardStatus.forEach(function (item) {
+        item.className = "card";
+    });
+    cardFigure.forEach(function (item) {
+        item.className = "";
+    });
+    shuffle();
+    assignCardPictures();
+    moveCounter = 0;
+    moves.textContent = moveCounter;
+    matchCounter = 0;
+    userRating = "Jedi Master (3 Stars)";
+    assignCardPictures();
+    minutes = 0;
+    seconds = 1;
+    time.innerText =  '0 : 0';
+};
+
+//initialize starting conditions on page lage
+startGame();
+
+//Functions for the click event handler attached to the cards
+
+/*Counting and displaying the moves; reducing the number of stars after certain number of moves;
+Sets user rating value based on number of stars:
+Ranks for finding all the matching elements:
+Under 38 steps: Jedi Master - set in start function as default value
+Between 38-44 steps: Master
+Between 44-50 steps: Expert
+Over 50 steps: Apprentice
+*/
 
 function movesCounter() {
     moveCounter++;
@@ -105,47 +120,73 @@ function movesCounter() {
     if (moveCounter === 1) {
         countTimer();
     }
-    if (moveCounter >= 49) {
+    if (moveCounter >= 38) {
         star3.className = "fa fa-star-o";
-        userRating = "Master"
+        userRating = "Master (2 Stars)";
     }
-    if (moveCounter >= 65) {
+    if (moveCounter >= 44) {
         star2.className = "fa fa-star-o";
-        userRating = "Expert"
+        userRating = "Expert (1 Stars)"
     }
-    if (moveCounter >= 78) {
+    if (moveCounter >= 50) {
         star1.className = "fa fa-star-o";
-        userRating = "Apprentice"
+        userRating = "Apprentice (0 Stars)";
     }
     console.log('3. Counter Moved');
     return userRating
 };
 
+//In case of matching cards, sets the correct CSS classes.
 function setMatchClass() {
     const openCards = document.querySelectorAll(".open");
     openCards[0].classList.add("match");
     openCards[1].classList.add("match");
     openCards[0].classList.remove("open", "show");
     openCards[1].classList.remove("open", "show");
-    console.log('5. Class has been matched');
     clickFunctionsFinished = "yes";
-    console.log('6. After matching click function set to' +clickFunctionsFinished);
-
 };
 
+//Shaking and turning cards red in case of cards not matching
+function addNotMatchAnimation() {
+    const openCards = document.querySelectorAll(".open");
+    openCards[0].classList.add("nomatch");
+    openCards[1].classList.add("nomatch");
+};
+/*In case of not matching cards, 
+removes the previously added no-match animation class and re-sets cards to default
+Also sets the clickFunctionFinished value to 'yes' which is a condition to start a new
+click event function*/
+
+function removeUnmatchedPairs() {
+    const openCards = document.querySelectorAll(".open");
+    openCards[0].classList.remove("open", "show", "nomatch");
+    openCards[1].classList.remove("open", "show", "nomatch");
+    clickFunctionsFinished = 'yes';
+};
+
+//Adds classes to show the card and pushes the newly open cards in the related array.
+function openCard(evt) {
+    tempEventTarget = evt.target;
+    evt.target.classList.add("open", "show");
+    listOfOpenCards.push(evt.target.firstElementChild.className);
+}
+
+
+/*Check if winning condition is reached, in case its true and all pairs are found display message
+detailing how many steps it took to complete the game, the time and offers options to restart or to 
+finish the game*/
 function winningCheck() {
     matchCounter++;
-    console.log('6. winning check has been run');
-    if (matchCounter === 1) {
+    if (matchCounter === 8) {
         clearInterval(timer);
         swal("Congratulations! You Won the game! Your Rank is: " + userRating +
-        " The number of moves took to finish: " + moveCounter + ", and the total time to complete the game is: " +
-        time.textContent, {
-                buttons: {
-                    cancel: "Enough is ENOUGH!",
-                    OK: "I want to play again!",
-                },
-            })
+                ". The number of moves took to finish: " + moveCounter + ", and the total time to complete the game is " +
+                (minutes * 60 + seconds) + " seconds. Well done!", {
+                    buttons: {
+                        cancel: "Enough is ENOUGH!",
+                        OK: "I want to play again!",
+                    },
+                })
             .then((value) => {
                 switch (value) {
                     case "OK":
@@ -157,91 +198,39 @@ function winningCheck() {
                         swal("Thank you for playing!");
                 }
             });
-    }
+    };
 }
 
-function removeUnmatchedPairs() {
-    const openCards = document.querySelectorAll(".open");
-    openCards[0].classList.remove("open", "show", "nomatch");
-    openCards[1].classList.remove("open", "show", "nomatch");
-    clickFunctionsFinished = 'yes';
-    console.log(' 5. Click function set to' +clickFunctionsFinished+ 'after unmatched pair of cards detected');
-    console.log(clickFunctionsFinished);
-};
-
-function addNotMatchAnimation(){
-    const openCards = document.querySelectorAll(".open");
-    openCards[0].classList.add("nomatch");
-    openCards[1].classList.add("nomatch");
-};
-
-function openCard(evt){
-        tempEventTarget = evt.target;
-        evt.target.classList.add("open", "show");
-        listOfOpenCards.push(evt.target.firstElementChild.className);
-    }
+//Add Event Listeners to the restart button and on clicking the cards:
 
 restartButton.addEventListener('click', startGame);
-
-
-var clickFunctionsFinished = 'yes';
-var tempEventTarget = 0;
-
 deck.addEventListener('click', function (evt) {
+    /*checking if click is on the right element, 
+    the clicked element is not the one clicked previously and if 
+    the click happens when no click function is running*/
     if (evt.target.nodeName === 'LI' && tempEventTarget !== evt.target && clickFunctionsFinished === 'yes') {
-        console.log('1' + clickFunctionsFinished + 'in the beginning')
-        
-        console.log('2.Card Opening Happened');
+
         openCard(evt);
         movesCounter();
-
+        //if there are two cards in the opened cards array starts checking for matching
         if (listOfOpenCards.length === 2) {
-            clickFunctionsFinished = 'nope';
-            console.log('4.a clickfinished function set to' + clickFunctionsFinished +  'after length is 2')
-            console.log('4.b Array length is 2.');
+            /*sets clickFunctionFinished to something other than yes, 
+            so can't start another matching click event while this one is running*/
+            clickFunctionsFinished = 'you wish';
             if (listOfOpenCards[0] === listOfOpenCards[1]) {
-                
                 setMatchClass();
                 winningCheck();
-
             } else {
-                
+
                 const openCards = document.querySelectorAll(".open");
-                addNotMatchAnimation();
-                setTimeout(removeUnmatchedPairs, 1000);
+                setTimeout(addNotMatchAnimation, 300);
+                setTimeout(removeUnmatchedPairs, 1200);
 
             }
-
+            //resets list of open cards array to zero
             listOfOpenCards = [];
-
-        }
-        
-        
-        
-    } 
-    console.log('Section after if statement.')
+        };
+    };
+    //this is necessary to check if the card clicked is not itself
     return tempEventTarget;
-})
-/*
- * set up the event listener for a card. If a card is clicked:
- */
-
-/*  OK display the card's symbol (put this functionality in another function that you call from this one)
- * 
- *   OK add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- * 
- *   OK if the list already has another card, check to see if the two cards match
- * 
- *    OK if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- * 
- *    OK if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- * 
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- * 
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
-
-
-
-
+});

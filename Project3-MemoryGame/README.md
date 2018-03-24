@@ -2,19 +2,34 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Instructions](#introduction)
+* [Built With](#contributing)
+* [Acknowledgements](#acknowledgements)
 
-## Instructions
+## Introduction
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Memory game project for Udacity's Front End Web Developer Nanodegree program.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Game Description
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+Have to match 8-8 card pairs to win the game.
+Game timer starts on click, counts the moves and time.
+In case of finding all the pairs an alert message informs the player of the following:
+-number of moves (clicks) used to win the game.
+-time in seconds to win the game.
+-Rank reached (and corresponding star number).
 
-## Contributing
+The player can choose to restart the game or to finish playing.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+The game uses CSS animations, transitions and JavaScript to manipulate the HTML according to the rules.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Built with
+
+* [Font Awesome](https://fontawesome.com/) - Icons
+* [SweetAlert](https://lipis.github.io/bootstrap-sweetalert/) - Advanced style alert function
+
+
+## Acknowledgements
+
+Project uses starting  index.html and app.css file for card grid and styling with use of Flexbox. 
+
