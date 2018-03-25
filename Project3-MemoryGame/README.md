@@ -4,8 +4,8 @@
 
 ## Table of Contents
 
-* [Instructions](#introduction)
-* [Built With](#contributing)
+* [Introduction](#introduction)
+* [Built With](#builtwith)
 * [Acknowledgements](#acknowledgements)
 
 ## Introduction
@@ -28,10 +28,8 @@ The game uses CSS animations, transitions and JavaScript to manipulate the HTML 
 ## Built with
 
 * [Font Awesome](https://fontawesome.com/) - Icons
-* [SweetAlert](https://lipis.github.io/bootstrap-sweetalert/) - Advanced style alert function
-
+* [SweetAlert](https://lipis.github.io/bootstrap-sweetalert/) - Advanced style for alert function
 
 ## Acknowledgements
 
-Project uses starting  index.html and app.css file for card grid and styling with use of Flexbox. 
-
+Project uses starting index.html and app.css file for card grid and styling with use of Flexbox. 

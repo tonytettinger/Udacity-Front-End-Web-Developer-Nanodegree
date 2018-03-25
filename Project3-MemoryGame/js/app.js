@@ -98,6 +98,8 @@ let startGame = function () {
     moves.textContent = moveCounter;
     matchCounter = 0;
     userRating = "Jedi Master (3 Stars)";
+    star2.className = "fa fa-star";
+    star3.className = "fa fa-star";
     assignCardPictures();
     minutes = 0;
     seconds = 1;
@@ -114,10 +116,9 @@ startGame();
 *Counting and displaying the moves; reducing the number of stars after certain number of moves;
 *Sets user rating value based on number of stars:
 *Ranks for finding all the matching elements:
-*Under 38 steps: Jedi Master - set in start function as default value
-*Between 38-44 steps: Master
-*Between 44-50 steps: Expert
-*Over 50 steps: Apprentice
+*Under 38 steps: Jedi Master 3 stars - set in start function as default value
+*Between 38-44 steps: Expert 2 stars
+*Between 44+ steps: Apprentice 1 star
 */
 
 function movesCounter() {
@@ -128,17 +129,13 @@ function movesCounter() {
     }
     if (moveCounter >= 38) {
         star3.className = "fa fa-star-o";
-        userRating = "Master (2 Stars)";
+        userRating = "Expert (2 Stars)";
     }
     if (moveCounter >= 44) {
         star2.className = "fa fa-star-o";
-        userRating = "Expert (1 Stars)"
+        userRating = "Apprentice (1 Stars)"
     }
-    if (moveCounter >= 50) {
-        star1.className = "fa fa-star-o";
-        userRating = "Apprentice (0 Stars)";
-    }
-    console.log('3. Counter Moved');
+
     return userRating
 };
 
