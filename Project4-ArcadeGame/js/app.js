@@ -1,5 +1,5 @@
 let allEnemies = [];
-
+let numberOfEnemies = 0;
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -8,7 +8,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = -4;
+    this.x = -101;
 };
 
 //random number generator for a max number of integers
@@ -21,8 +21,12 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x;
+    this.x = this.x+ this.speed*dt;
     this.y = this.y;
+//delete enemy object if it moves off canvas.
+    if(this.x>606){
+        allEnemies.splice(allEnemies.indexOf(this), 1);
+    };
     
     //Here should be a random number generator for each row, that generates a number  1, 2, 3, 4, 5 corresponds to
     //line 2,3,4,5 where the bugs will be appearing
@@ -72,11 +76,8 @@ Player.prototype.handleInput = function(key) {
 // Place all enemy objects in an array called allEnemies
 allEnemies = [];
 // Place the player object in a variable called player
-player = {};
-
 
 let player = new Player;
-
 
 
 // This listens for key presses and sends the keys to your

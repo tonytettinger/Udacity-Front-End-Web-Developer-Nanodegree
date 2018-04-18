@@ -12,7 +12,6 @@
  * This engine makes the canvas' context (ctx) object globally available to make 
  * writing app.js a little simpler to work with.
  */
-
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -26,7 +25,7 @@ var Engine = (function(global) {
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.body.appendChild(canvas);
+    doc.body.appendChild(canvas);   
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -97,13 +96,36 @@ var Engine = (function(global) {
         player.update();
     }
     
+    
     function addNewEnemies() {
-        
+counter = 0;
+while(counter<4){
+    chanceNumber = randomNumberGenerator(250);
+    let distanceCheck = filterTooCloseDistance();
+    console.log(distanceCheck);
+if(chanceNumber===1 && allEnemies.length < 8 && distanceCheck.length ==0){
 let randomEnemy = new Enemy();
-randomEnemy.y = 65 + randomNumberGenerator(4)*83;
-        allEnemies.push(randomEnemy);
-                        
+randomEnemy.speed = chanceNumber*260;
+randomEnemy.y = 65 + counter*83;
+randomEnemy.lane = counter;
+allEnemies.push(randomEnemy);
+                        }
+    counter++;
+    }
     };
+    
+// this function makes sure the bugs don't appear too close to each othe
+    function filterTooCloseDistance() {
+        var result = allEnemies.filter(function(enemy) {
+            if(enemy.lane == counter && enemy.x <150){
+                return true;
+            } else {
+                return false;
+            }
+                                       });
+        return result;
+    };
+        
     
     let randomNumberGenerator = function(max) {
   return Math.floor(Math.random() * Math.floor(max));
