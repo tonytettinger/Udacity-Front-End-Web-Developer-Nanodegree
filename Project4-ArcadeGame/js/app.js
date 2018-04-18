@@ -1,5 +1,8 @@
 let allEnemies = [];
-
+let numberOfEnemies = 0;
+let position = [252,435];
+let lives = 3;
+let score = 0;
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -8,7 +11,9 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = -4;
+    this.x = -101;
+    this.height = 50;
+    this.width = 50;
 };
 
 //random number generator for a max number of integers
@@ -21,8 +26,12 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x;
+    this.x = this.x+ this.speed*dt;
     this.y = this.y;
+//delete enemy object if it moves off canvas.
+    if(this.x>606){
+        allEnemies.splice(allEnemies.indexOf(this), 1);
+    };
     
     //Here should be a random number generator for each row, that generates a number  1, 2, 3, 4, 5 corresponds to
     //line 2,3,4,5 where the bugs will be appearing
@@ -41,6 +50,8 @@ var Player = function() {
     this.sprite = 'images/char-cat-girl.png';
     this.x = position[0];
     this.y = position[1];
+    this.height = 50;
+    this.width = 50;
 };
 
 Player.prototype.update = function() {
@@ -55,28 +66,27 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-let position = [200,200];
 
 Player.prototype.handleInput = function(key) {
-    if(key == 'left' && position[0] >= -5) {
-        position[0] = position[0] - 30;
+    if(key == 'left' && position[0] >= -10) {
+        position[0] = position[0] - 50;
     }
-    if(key =='right') {
-        position[0] = position[0] + 30;
+    if(key =='right' && position[0] <= 405) {
+        position[0] = position[0] + 50;
     }
-    if(key =='up') {
-        position[1] = position[1] + -30;
+    if(key =='up' && position[1] >= 0) {
+        position[1] = position[1] - 50;
+    }
+    if(key =='down' && position[1] <= 425) {
+        position[1] = position[1] + 50;
     }
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 allEnemies = [];
 // Place the player object in a variable called player
-player = {};
-
 
 let player = new Player;
-
 
 
 // This listens for key presses and sends the keys to your

@@ -12,7 +12,6 @@
  * This engine makes the canvas' context (ctx) object globally available to make 
  * writing app.js a little simpler to work with.
  */
-
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -26,7 +25,7 @@ var Engine = (function(global) {
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.body.appendChild(canvas);
+    doc.getElementById('canvas').appendChild(canvas);   
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -55,6 +54,7 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
+       
         win.requestAnimationFrame(main);
     }
 
@@ -77,10 +77,20 @@ var Engine = (function(global) {
      * functionality this way (you could just implement collision detection
      * on the entities themselves within your app.js file).
      */
+    let collision = false;
     function update(dt) {
         addNewEnemies();
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+        if(collision === true){
+            location.reload();
+        }
+        if(player.y === -15) {
+            console.log('win');
+        requestId =  win.requestAnimationFrame(main);
+            win.cancelAnimationFrame(requestId);
+            
+        }
     }
 
     /* This is called by the update function and loops through all of the
@@ -97,13 +107,48 @@ var Engine = (function(global) {
         player.update();
     }
     
-    function addNewEnemies() {
+    let restart = 0;
+    
+    function checkCollisions() {
+    collision = allEnemies.some(EnemyPlayerCollisionDetector);
+         };
+    
+    //Function checking for conditions for enemy objects colliding with the player object    
+    function EnemyPlayerCollisionDetector(enemy){
+        return (enemy.x < player.x + player.width &&
+   enemy.x + enemy.width > player.x &&
+   enemy.y < player.y + player.height &&
+   enemy.height + enemy.y > player.y);
+    }
         
+    function addNewEnemies() {
+counter = 0;
+while(counter<4){
+    chanceNumber = randomNumberGenerator(250);
+    let distanceCheck = filterTooCloseDistance();
+if(chanceNumber===1 && allEnemies.length < 8 && distanceCheck.length ==0){
 let randomEnemy = new Enemy();
-randomEnemy.y = 65 + randomNumberGenerator(4)*83;
-        allEnemies.push(randomEnemy);
-                        
+randomEnemy.speed = chanceNumber*260;
+randomEnemy.y = 65 + counter*83;
+randomEnemy.lane = counter;
+allEnemies.push(randomEnemy);
+                        }
+    counter++;
+    }
     };
+    
+// this function makes sure the bugs don't appear too close to each othe
+    function filterTooCloseDistance() {
+        var result = allEnemies.filter(function(enemy) {
+            if(enemy.lane == counter && enemy.x <150){
+                return true;
+            } else {
+                return false;
+            }
+                                       });
+        return result;
+    };
+        
     
     let randomNumberGenerator = function(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -176,6 +221,8 @@ randomEnemy.y = 65 + randomNumberGenerator(4)*83;
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
+        
+        let position = [252,435];
         // noop
     }
 
