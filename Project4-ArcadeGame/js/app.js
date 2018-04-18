@@ -1,3 +1,5 @@
+let allEnemies = [];
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -6,7 +8,12 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = -4;
 };
+
+//random number generator for a max number of integers
+
+//-18 y is good to align the bug for the first row and +83 for defining a new row. Bugs should start at -101 on x
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -14,6 +21,12 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x = this.x;
+    this.y = this.y;
+    
+    //Here should be a random number generator for each row, that generates a number  1, 2, 3, 4, 5 corresponds to
+    //line 2,3,4,5 where the bugs will be appearing
+    //then a random number should be generated to determine the speed (random number generator should be a prototype of the Enemy)
 };
 
 // Draw the enemy on the screen, required method for game
@@ -24,11 +37,44 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var Player = function() {
+    this.sprite = 'images/char-cat-girl.png';
+    this.x = position[0];
+    this.y = position[1];
+};
 
+Player.prototype.update = function() {
+    this.x = position[0];
+    this.y = position[1];
+    
+};
 
+Player.prototype.render = function() {
+    console.log('rendered');
+    
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+let position = [200,200];
+
+Player.prototype.handleInput = function(key) {
+    if(key == 'left' && position[0] >= -5) {
+        position[0] = position[0] - 30;
+    }
+    if(key =='right') {
+        position[0] = position[0] + 30;
+    }
+    if(key =='up') {
+        position[1] = position[1] + -30;
+    }
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+
+
+
+let player = new Player;
 
 
 

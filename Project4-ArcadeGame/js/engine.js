@@ -78,6 +78,7 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
+        addNewEnemies();
         updateEntities(dt);
         // checkCollisions();
     }
@@ -95,6 +96,20 @@ var Engine = (function(global) {
         });
         player.update();
     }
+    
+    function addNewEnemies() {
+        
+let randomEnemy = new Enemy();
+randomEnemy.y = 65 + randomNumberGenerator(4)*83;
+        allEnemies.push(randomEnemy);
+                        
+    };
+    
+    let randomNumberGenerator = function(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+    
+
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
@@ -173,7 +188,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png'
     ]);
     Resources.onReady(init);
 
