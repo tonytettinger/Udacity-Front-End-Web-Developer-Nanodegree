@@ -70,8 +70,9 @@ Player.prototype.handleInput = function(key) {
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+allEnemies = [];
 // Place the player object in a variable called player
-
+player = {};
 
 
 let player = new Player;
