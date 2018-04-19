@@ -128,7 +128,7 @@ var Engine = (function (global) {
     };
     //check if winning or losing conditions are met
     function checkWinLose() {
-        if (scoreCount === 3) {
+        if (scoreCount === 5) {
             wonGame();
         } else if (livesCount === 0) {
             lostGame();
