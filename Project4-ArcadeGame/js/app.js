@@ -2,7 +2,7 @@ let allEnemies = [];
 let numberOfEnemies = 0;
 let position = [252,435];
 let lives = 3;
-let score = 0;
+let scoreCount = 0;
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -47,6 +47,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function() {
+    this.position = []
     this.sprite = 'images/char-cat-girl.png';
     this.x = position[0];
     this.y = position[1];
@@ -60,9 +61,7 @@ Player.prototype.update = function() {
     
 };
 
-Player.prototype.render = function() {
-    console.log('rendered');
-    
+Player.prototype.render = function() {    
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 

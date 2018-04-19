@@ -12,7 +12,7 @@
  * This engine makes the canvas' context (ctx) object globally available to make 
  * writing app.js a little simpler to work with.
  */
-var Engine = (function(global) {
+var Engine = (function (global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -21,11 +21,16 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        scoreText = doc.getElementById('score'),
+        livesText = doc.getElementById('lives'),
+        scoreCount = 0,
+        livesCount = 3;
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.getElementById('canvas').appendChild(canvas);   
+    doc.getElementById('canvas').appendChild(canvas);
+
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -54,7 +59,7 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-       
+
         win.requestAnimationFrame(main);
     }
 
@@ -63,7 +68,6 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
-        reset();
         lastTime = Date.now();
         main();
     }
@@ -78,21 +82,22 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     let collision = false;
+
     function update(dt) {
         addNewEnemies();
         updateEntities(dt);
         checkCollisions();
-        if(collision === true){
-            location.reload();
-        }
-        if(player.y === -15) {
-            console.log('win');
-        requestId =  win.requestAnimationFrame(main);
-            win.cancelAnimationFrame(requestId);
-            
-        }
+        checkWin();
     }
 
+    function checkWin() {
+        if (player.y === -15) {
+            scoreCount++;
+            score.textContent = 'Score ' + scoreCount;
+            position = [252,435];
+            promptRefresh();
+        } 
+    }
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
@@ -101,59 +106,74 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.update(dt);
         });
         player.update();
     }
-    
-    let restart = 0;
-    
+
     function checkCollisions() {
-    collision = allEnemies.some(EnemyPlayerCollisionDetector);
-         };
-    
-    //Function checking for conditions for enemy objects colliding with the player object    
-    function EnemyPlayerCollisionDetector(enemy){
-        return (enemy.x < player.x + player.width &&
-   enemy.x + enemy.width > player.x &&
-   enemy.y < player.y + player.height &&
-   enemy.height + enemy.y > player.y);
-    }
-        
-    function addNewEnemies() {
-counter = 0;
-while(counter<4){
-    chanceNumber = randomNumberGenerator(250);
-    let distanceCheck = filterTooCloseDistance();
-if(chanceNumber===1 && allEnemies.length < 8 && distanceCheck.length ==0){
-let randomEnemy = new Enemy();
-randomEnemy.speed = chanceNumber*260;
-randomEnemy.y = 65 + counter*83;
-randomEnemy.lane = counter;
-allEnemies.push(randomEnemy);
-                        }
-    counter++;
-    }
+        collision = allEnemies.some(EnemyPlayerCollisionDetector);
+        if (collision === true) {
+            position = [252,435];
+            livesCount--;
+            swal({
+  title: "You have been eaten by a bug!",
+  text: "Be careful you have " + livesCount + " lives left!",
+  confirmButtonClass: "btn-danger",
+});
+            livesText.textContent = 'Lives ' + livesCount;
+        }
     };
-    
-// this function makes sure the bugs don't appear too close to each othe
+
+    //Function checking for conditions for enemy objects colliding with the player object    
+    function EnemyPlayerCollisionDetector(enemy) {
+        return (enemy.x < player.x + player.width &&
+            enemy.x + enemy.width > player.x &&
+            enemy.y < player.y + player.height &&
+            enemy.height + enemy.y > player.y);
+    }
+
+    function promptRefresh() {
+       swal({
+  title: "You have been eaten by a bug!",
+  text: "Be careful you have " + livesCount + " lives left!",
+  confirmButtonClass: "btn-danger",
+});
+        };
+    function addNewEnemies() {
+        counter = 0;
+        while (counter < 4) {
+            chanceNumber = randomNumberGenerator(250);
+            let distanceCheck = filterTooCloseDistance();
+            if (chanceNumber === 1 && allEnemies.length < 8 && distanceCheck.length == 0) {
+                let randomEnemy = new Enemy();
+                randomEnemy.speed = chanceNumber * 260;
+                randomEnemy.y = 65 + counter * 83;
+                randomEnemy.lane = counter;
+                allEnemies.push(randomEnemy);
+            }
+            counter++;
+        }
+    };
+
+    // this function makes sure the bugs don't appear too close to each othe
     function filterTooCloseDistance() {
-        var result = allEnemies.filter(function(enemy) {
-            if(enemy.lane == counter && enemy.x <150){
+        var result = allEnemies.filter(function (enemy) {
+            if (enemy.lane == counter && enemy.x < 150) {
                 return true;
             } else {
                 return false;
             }
-                                       });
+        });
         return result;
     };
-        
-    
-    let randomNumberGenerator = function(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-    
+
+
+    let randomNumberGenerator = function (max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
 
 
     /* This function initially draws the "game level", it will then call
@@ -167,19 +187,19 @@ allEnemies.push(randomEnemy);
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/water-block.png', // Top row is water
+                'images/stone-block.png', // Row 1 of 3 of stone
+                'images/stone-block.png', // Row 2 of 3 of stone
+                'images/stone-block.png', // Row 3 of 3 of stone
+                'images/grass-block.png', // Row 1 of 2 of grass
+                'images/grass-block.png' // Row 2 of 2 of grass
             ],
             numRows = 6,
             numCols = 5,
             row, col;
-        
+
         // Before drawing, clear existing canvas
-        ctx.clearRect(0,0,canvas.width,canvas.height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
@@ -209,7 +229,7 @@ allEnemies.push(randomEnemy);
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.render();
         });
 
@@ -222,8 +242,7 @@ allEnemies.push(randomEnemy);
      */
     function reset() {
         
-        let position = [252,435];
-        // noop
+        allEnemies = [];
     }
 
     /* Go ahead and load all of the images we know we're going to need to
