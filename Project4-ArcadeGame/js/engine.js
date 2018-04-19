@@ -198,9 +198,9 @@ var Engine = (function (global) {
     function addNewEnemies() {
         counter = 0;
         while (counter < 4) {
-            chanceNumber = randomNumberGenerator(40);
+            chanceNumber = randomNumberGenerator(45);
             let distanceCheck = filterTooCloseDistance();
-            if (chanceNumber === 1 && allEnemies.length < 8 && distanceCheck.length == 0) {
+            if (chanceNumber === 1 && allEnemies.length < 9 && distanceCheck.length == 0) {
                 let randomEnemy = new Enemy();
                 randomEnemy.speed = (randomNumberGenerator(5) + 1) * 65;
                 randomEnemy.y = 65 + counter * 83;
@@ -214,7 +214,7 @@ var Engine = (function (global) {
     // This function makes sure the bugs don't appear too close to each other
     function filterTooCloseDistance() {
         var result = allEnemies.filter(function (enemy) {
-            if (enemy.lane == counter && enemy.x > 300) {
+            if (enemy.lane == counter && enemy.x < 400) {
                 return true;
             } else {
                 return false;
