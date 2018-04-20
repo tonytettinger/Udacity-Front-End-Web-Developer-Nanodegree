@@ -22,9 +22,9 @@ Udacity project log
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project3-MemoryGame)
   - [preview](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project3-MemoryGame/index.html)
 ###### Exploring JS - Objects, Tools and Testing  
-  - [x] **Project 4** - Classic Arcade Game Clone
-   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/something/Project4-ArcadeGame)
-   - [preview](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project4-ArcadeGame/index.html)
+- [x] **Project 4** - Classic Arcade Game Clone
+  - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/something/Project4-ArcadeGame)
+  - [preview](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project4-ArcadeGame/index.html)
 - [ ] **Project 5** - Feed Reader Testing
   - code
   - preview  
