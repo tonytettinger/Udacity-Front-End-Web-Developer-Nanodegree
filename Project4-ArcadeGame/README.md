@@ -1,5 +1,8 @@
-frontend-nanodegree-arcade-game
-===============================
+frontend-nanodegree-arcade-game: Frog Runner
+============================================
+**Start game**
+Double click on index.html to start the game.
+Read the instructions and click on the start button.
 
 **Play game**
 
