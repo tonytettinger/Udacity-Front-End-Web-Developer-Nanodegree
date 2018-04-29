@@ -26,21 +26,35 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
-        /* TODO: Write a test that loops through each feed
+         /* Test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+        it('have URL\'s defined and the URL definition is not empty', function() {
+            for(let i=0; i<(allFeeds.length-1); i++){
+            expect(allFeeds[i]['url']).toBeDefined();
+            expect(allFeeds[i]['url']).not.toBe(''); 
+        };
+        });
 
-
-        /* TODO: Write a test that loops through each feed
+        /* A test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+
+        it('have name\'s defined and the name definition is not empty', function() {
+            for(let i=0; i<(allFeeds.length-1); i++){
+            expect(allFeeds[i]['name']).toBeDefined();
+            expect(allFeeds[i]['url']).not.toBe(''); 
+        };
+        });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
+    describe("The menu", function() {
+        it("the menu element is hidden by default", function() {
+          expect($(document.body).hasClass('menu-hidden'));
+        });
+      });
 
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
