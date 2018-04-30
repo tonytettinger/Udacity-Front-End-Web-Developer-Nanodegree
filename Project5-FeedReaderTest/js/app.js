@@ -87,7 +87,8 @@ function init() {
  * to call when the Feed Reader API is done loading.
  */
 google.setOnLoadCallback(init);
-
+let iconListButton = $('.menu-icon-link');
+console.log(iconListButton);
 /* All of this functionality is heavily reliant upon the DOM, so we
  * place our code in the $() function to ensure it doesn't execute
  * until the DOM is ready.
