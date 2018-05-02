@@ -74,7 +74,18 @@ $(function() {
       });
 
 
-                 
+    describe("Initial Entries", function() {
+        beforeEach(function(done) {
+    setTimeout(function() {
+      loadFeed();
+      done();
+    }, 1);
+  });
+       it("adds at least one element after the loadFeed function is completed to the .feed container", function(done) {
+           expect($('.feed a')).hasClass('entry-link');
+       })
+        
+    });
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
