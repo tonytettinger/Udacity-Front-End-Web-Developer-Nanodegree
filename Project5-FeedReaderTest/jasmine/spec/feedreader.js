@@ -72,7 +72,7 @@ $(function () {
             expect(document.body.classList.contains('menu-hidden')).toBe(true);
         });
     });
-    
+
     /* Test that ensures when the loadFeed
      * function is called and completes its work, there is at least
      * a single .entry element within the .feed container.
@@ -82,33 +82,35 @@ $(function () {
             loadFeed(0, done);
         });
 
-        it("has at least one entry", function(done) {
+        it("has at least one entry", function (done) {
             var listLength = $('.feed .entry').length;
             expect(listLength).toBeGreaterThan(0);
             done();
         });
     });
 
-    describe("New Feed Selection", function() {
-        beforeEach(function(done){
-        loadFeed(0, function () {
-            firstFeeds = $('.feed').html();
-            done();
-        
+    describe("New Feed Selection", function () {
+            let firstFeed, secondFeed, test;
+            beforeEach(function (done) {
+                    loadFeed(0, function () {
+                            firstFeed = document.querySelector('.feed').innerText;
+                            
+                        });
+                    loadFeed(1, function () {
+                            secondFeed = document.querySelector('.feed').innerText;
+                            
+                    done();
+                        }); 
+                    });
+    
+            it("a new feed is loaded by the loadFeed function and the content actually changes", function (done) {
+                expect(firstFeed).not.toEqual(secondFeed);
+                done();
         });
     });
-        it("a new feed is loaded by the loadFeed function and the content actually changes", function(done) {
-            loadFeed(1, function () {
-                secondFeeds = $('.feed').html();
 
-            });
-            expect(firstFeeds).not.toBeEqual(secondFeeds);
-            done();
-        });
-    });
-
-    /* TODO: Write a test that ensures when a new feed is loaded
-     * by the loadFeed function that the content actually changes.
-     * Remember, loadFeed() is asynchronous.
-     */
+/* TODO: Write a test that ensures when a new feed is loaded
+ * by the loadFeed function that the content actually changes.
+ * Remember, loadFeed() is asynchronous.
+ */
 }());
