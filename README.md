@@ -25,9 +25,9 @@ Udacity project log
 - [x] **Project 4** - Classic Arcade Game Clone
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project4-ArcadeGame)
   - [preview](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project4-ArcadeGame/index.html)
-- [ ] **Project 5** - Feed Reader Testing
-  - code
-  - preview  
+- [x] **Project 5** - Feed Reader Testing
+  - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project5-FeedReaderTest)
+  - [preview](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project5-FeedReaderTest/index.html)
 ###### Front-End Applications  
 - [ ] **Project 6** - Restaurant Reviews App - Stage 1
   - code
