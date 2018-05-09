@@ -73,7 +73,7 @@ $(function () {
         });
     });
 
-    /* Test that ensures when the loadFeed
+    /* Test suit that ensures when the loadFeed
      * function is called and completes its work, there is at least
      * a single .entry element within the .feed container.
      */
@@ -88,29 +88,29 @@ $(function () {
             done();
         });
     });
-
+    /* Test suit that ensures when a new feed is loaded
+     * by the loadFeed function that the content actually changes.
+     * Remember, loadFeed() is asynchronous.
+     */
     describe("New Feed Selection", function () {
-            let firstFeed, secondFeed, test;
-            beforeEach(function (done) {
-                    loadFeed(0, function () {
-                            firstFeed = document.querySelector('.feed').innerText;
-                            
-                        });
-                    loadFeed(1, function () {
-                            secondFeed = document.querySelector('.feed').innerText;
-                            
-                    done();
-                        }); 
-                    });
-    
-            it("a new feed is loaded by the loadFeed function and the content actually changes", function (done) {
-                expect(firstFeed).not.toEqual(secondFeed);
+        let firstFeed, secondFeed, test;
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                firstFeed = document.querySelector('.feed').innerText;
+
+            });
+            loadFeed(1, function () {
+                secondFeed = document.querySelector('.feed').innerText;
+
                 done();
+            });
+        });
+
+        it("a new feed is loaded by the loadFeed function and the content actually changes", function (done) {
+            expect(firstFeed).not.toEqual(secondFeed);
+            done();
         });
     });
 
-/* TODO: Write a test that ensures when a new feed is loaded
- * by the loadFeed function that the content actually changes.
- * Remember, loadFeed() is asynchronous.
- */
+
 }());
