@@ -21,8 +21,7 @@ let listOfCats = [{
 let currentCatArrayIndex = 4;
 let catClickCountArray = [0,0,0,0,0];
 let clickCounter = function () {
-    let newCount = catClickCountArray[currentCatArrayIndex] + 1;
-    catClickCountArray[currentCatArrayIndex] = newCount;
+    catClickCountArray[currentCatArrayIndex] += 1;
     counterElement.innerText = catClickCountArray[currentCatArrayIndex];
     console.log(catClickCountArray[currentCatArrayIndex]);
 }
