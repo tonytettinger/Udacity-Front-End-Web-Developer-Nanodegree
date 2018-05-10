@@ -31,10 +31,10 @@ $(function () {
          * and that the URL is not empty.
          */
         it('have URL\'s defined and the URL definition is not empty', function () {
-            for (let i = 0; i < (allFeeds.length - 1); i++) {
-                expect(allFeeds[i]['url']).toBeDefined();
-                expect(allFeeds[i]['url']).not.toBe('');
-            };
+            allFeeds.forEach(function(feed){
+                expect(feed.url).toBeDefined();
+                expect(feed.url).toBeTruthy();
+            });
         });
 
         /* A test that loops through each feed
@@ -43,10 +43,10 @@ $(function () {
          */
 
         it('have name\'s defined and the name definition is not empty', function () {
-            for (let i = 0; i < (allFeeds.length - 1); i++) {
-                expect(allFeeds[i]['name']).toBeDefined();
-                expect(allFeeds[i]['url']).not.toBe('');
-            };
+              allFeeds.forEach(function(feed){
+                expect(feed.name).toBeDefined();
+                expect(feed.name).toBeTruthy();
+            });
         });
     });
 
@@ -97,13 +97,11 @@ $(function () {
         beforeEach(function (done) {
             loadFeed(0, function () {
                 firstFeed = document.querySelector('.feed').innerText;
-
-            });
-            loadFeed(1, function () {
-                secondFeed = document.querySelector('.feed').innerText;
-
+                    loadFeed(1, function () {
+                        secondFeed = document.querySelector('.feed').innerText;
                 done();
             });
+        });
         });
 
         it("a new feed is loaded by the loadFeed function and the content actually changes", function (done) {
