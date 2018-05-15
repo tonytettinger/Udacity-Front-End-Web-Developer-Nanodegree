@@ -5,7 +5,7 @@
 ## Table of Contents
 
 * [Introduction](#introduction)
-* [Built With](#builtwith)
+* [Built With](#built with)
 * [Acknowledgements](#acknowledgements)
 
 ## Introduction
