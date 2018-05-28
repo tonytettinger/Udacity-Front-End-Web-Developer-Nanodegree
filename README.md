@@ -30,8 +30,8 @@ Udacity project log
   - [preview](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project5-FeedReaderTest/index.html)
 ###### Front-End Applications  
 - [ ] **Project 6** - Restaurant Reviews App - Stage 1
-  - code
-  - preview
+  - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project6-RestaurantReviewApp)
+  - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Project6-RestaurantReviewApp/index.html)
 ###### Building with React  
 - [ ] **Project 7** - MyReads: A Book Tracking App
   - code
