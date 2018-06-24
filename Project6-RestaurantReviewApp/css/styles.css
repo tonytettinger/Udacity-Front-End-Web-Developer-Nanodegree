@@ -64,6 +64,7 @@ nav h1 a {
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
+    padding: 20px;
 }
 #breadcrumb {
     padding: 10px 40px 16px;
