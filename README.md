@@ -34,8 +34,8 @@ Udacity project log
   - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Project6-RestaurantReviewApp/index.html)
 ###### Building with React  
 - [ ] **Project 7** - MyReads: A Book Tracking App
-  - code
-  - preview  
+  - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project7-BookTrackingApp-React)
+  - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Project7-BookTrackingApp-React/public/index.html) 
 - [ ] **Project 8** - Neigbourhood Map (React)
   - code
   - preview  
