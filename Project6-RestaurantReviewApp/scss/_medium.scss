@@ -1,0 +1,64 @@
+#restaurants-list li {
+  background-color: #fff;
+  border: 2px solid #ccc;
+}
+
+/* ====================== Restaurant Filtering ====================== */
+.filter-options {
+      justify-content: space-around;
+  
+    }
+    .filter-options select {
+      width: 180px;
+    }
+
+    /* ====================== Restaurant Listing ====================== */
+    #restaurants-list {
+        background-color: #f3f3f3;
+        list-style: outside none none;
+        margin: 0;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+    #restaurants-list li {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+      font-family: Arial,sans-serif;
+      text-align: center;
+      width: 180px;
+    }
+    #restaurants-list .restaurant-img {
+      background-color: #ccc;
+      max-width: 100%;
+    }
+    #restaurants-list li h1 {   
+      color: #f18200;
+      font-family: Arial,sans-serif;
+      font-size: 16pt;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 1.3;
+      margin: 20px 0 10px;
+      text-transform: uppercase;
+      vertical-align: text-bottom;
+    }
+    #restaurants-list p {
+      margin-bottom: 10px;
+      font-size: 13pt;
+    }
+    #restaurants-list li a {
+      background-color: orange;
+      padding: 10px;
+      border-bottom: 3px solid #eee;
+      color: #fff;
+      font-size: 16pt;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      align-self: baseline;
+      margin-top: auto;
+    }
