@@ -6,8 +6,12 @@
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
       justify-content: space-around;
+      flex-wrap: wrap;
+
+    
   
     }
+    
     .filter-options select {
       width: 180px;
     }
