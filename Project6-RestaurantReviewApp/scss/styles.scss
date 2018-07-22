@@ -1,10 +1,6 @@
 @import "reset";
 
-@import "base";
-
-@media only screen and (min-width: 360px) {
 @import "small";
-}
 
 @media only screen and (min-width: 560px) {
 @import "medium"; 

@@ -98,9 +98,15 @@ nav {
   background-color: #252831; }
 
 nav h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 70px;
   text-align: center; }
 
@@ -147,13 +153,23 @@ nav h1 a {
 
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
   background-color: #3397DB;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 130px; }
 
 .filter-options h2 {
@@ -161,7 +177,8 @@ nav h1 a {
   font-size: 20px;
   font-weight: normal;
   line-height: 1;
-  flex-shrink: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   margin-bottom: 0;
   width: 100%;
   text-align: center; }
@@ -186,11 +203,25 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  text-align: center; }
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 
 #restaurants-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: Arial,sans-serif;
   text-align: center;
   width: 100%; }
@@ -314,25 +345,6 @@ nav h1 a {
 #restaurant-hours td {
   color: #666; }
 
-@media only screen and (min-width: 360px) {
-  /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
-  html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%; }
-
-  /*  apply a natural box layout model to all elements  */
-  * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box; }
-
-  #restaurants-list {
-    display: flex;
-    flex-direction: column; }
-
-  nav h1 a {
-    font-size: 25px;
-    letter-spacing: 2px; } }
 @media only screen and (min-width: 560px) {
   #restaurants-list li {
     background-color: #fff;
@@ -340,8 +352,10 @@ nav h1 a {
 
   /* ====================== Restaurant Filtering ====================== */
   .filter-options {
-    justify-content: space-around;
-    flex-wrap: wrap; }
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
 
   .filter-options select {
     width: 180px; }
@@ -352,17 +366,32 @@ nav h1 a {
     list-style: outside none none;
     margin: 0;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row; }
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
 
   #restaurants-list li {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     font-family: Arial,sans-serif;
     text-align: center;
-    width: 180px; }
+    width: 32%; }
 
   #restaurants-list .restaurant-img {
     background-color: #ccc;
@@ -392,10 +421,14 @@ nav h1 a {
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    align-self: baseline;
+    -ms-flex-item-align: baseline;
+        align-self: baseline;
     margin-top: auto; } }
 @media only screen and (min-width: 1140px) {
   #restaurants-list {
-    flex-direction: row; } }
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; } }
 
 /*# sourceMappingURL=styles.css.map */
