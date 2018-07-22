@@ -224,11 +224,18 @@ nav h1 a {
           flex-direction: column;
   font-family: Arial,sans-serif;
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 #restaurants-list .restaurant-img {
   background-color: #ccc;
-  max-width: 100%; }
+  width: 100%; }
 
 #restaurants-list li h1 {
   color: #f18200;
@@ -253,7 +260,15 @@ nav h1 a {
   font-size: 16pt;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: auto;
+  width: 100%;
+  max-height: 30px; }
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
@@ -357,8 +372,11 @@ nav h1 a {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
 
-  .filter-options select {
+  .filter-options h2 {
     width: 180px; }
+
+  .filter-options label {
+    width: 20%; }
 
   /* ====================== Restaurant Listing ====================== */
   #restaurants-list {
@@ -375,9 +393,8 @@ nav h1 a {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
 
   #restaurants-list li {
     display: -webkit-box;
@@ -409,21 +426,8 @@ nav h1 a {
     vertical-align: text-bottom; }
 
   #restaurants-list p {
-    margin-bottom: 10px;
-    font-size: 13pt; }
-
-  #restaurants-list li a {
-    background-color: orange;
-    padding: 10px;
-    border-bottom: 3px solid #eee;
-    color: #fff;
-    font-size: 16pt;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    -ms-flex-item-align: baseline;
-        align-self: baseline;
-    margin-top: auto; } }
+    margin-bottom: auto;
+    font-size: 13pt; } }
 @media only screen and (min-width: 1140px) {
   #restaurants-list {
     -webkit-box-orient: horizontal;

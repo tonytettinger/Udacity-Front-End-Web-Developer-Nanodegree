@@ -7,13 +7,14 @@
 .filter-options {
       justify-content: space-around;
       flex-wrap: wrap;
-
-    
   
     }
     
-    .filter-options select {
+    .filter-options h2 {
       width: 180px;
+    }
+    .filter-options label {
+      width: 20%;
     }
 
     /* ====================== Restaurant Listing ====================== */
@@ -25,13 +26,12 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
       }
     #restaurants-list li {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-
       font-family: Arial,sans-serif;
       text-align: center;
       width: 32%
@@ -52,18 +52,6 @@
       vertical-align: text-bottom;
     }
     #restaurants-list p {
-      margin-bottom: 10px;
+      margin-bottom: auto;
       font-size: 13pt;
-    }
-    #restaurants-list li a {
-      background-color: orange;
-      padding: 10px;
-      border-bottom: 3px solid #eee;
-      color: #fff;
-      font-size: 16pt;
-      text-align: center;
-      text-decoration: none;
-      text-transform: uppercase;
-      align-self: baseline;
-      margin-top: auto;
     }
