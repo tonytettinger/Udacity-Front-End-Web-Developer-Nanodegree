@@ -5,8 +5,17 @@ body{
     background-color: bisque;
 }
 
+body.inside {
+    padding-top: 100px;
+    max-width: 100%;
+}
+
 nav h1 {
     height: 80px;
+}
+
+.inside nav h1{
+    height: 60px;
 }
 
 nav h1 a {

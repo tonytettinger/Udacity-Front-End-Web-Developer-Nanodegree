@@ -255,15 +255,13 @@ nav h1 a {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
   margin-left: auto;
   margin-right: auto;
 }
 
 body.inside {
   padding-top: 100px;
+  width: 100%;
 }
 
 .inside header {

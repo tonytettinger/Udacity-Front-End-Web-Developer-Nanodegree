@@ -61,3 +61,42 @@ nav h1 a {
       margin-bottom: auto;
       font-size: 13pt;
     }
+/*restaurant-page*/
+    #maincontent2 {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .inside #map-container{
+      width: 50%;
+      margin-top: 67px;
+      order: 2;
+      margin-bottom: 0;
+      position: relative;
+      height: auto;
+    }
+
+    .inside #map {
+      height: 100%;
+      position: absolute;
+    }
+
+    #restaurant-container {
+      width: 50%;
+      order: 1;
+    }
+
+    #restaurant-img {
+      height: auto;
+      flex: 1;
+      width: 100%;
+    }
+
+    .inside #restaurant-name {
+      width: 100vh;
+      text-align: center;
+    }
+    
+    #reviews-container{
+      order: 3;
+    }

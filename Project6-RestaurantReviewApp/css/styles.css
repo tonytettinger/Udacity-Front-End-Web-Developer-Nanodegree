@@ -262,14 +262,12 @@ nav h1 a {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
   margin-left: auto;
   margin-right: auto; }
 
 body.inside {
-  padding-top: 100px; }
+  padding-top: 100px;
+  width: 100%; }
 
 .inside header {
   position: fixed;
@@ -436,7 +434,40 @@ body.inside {
 
   #restaurants-list p {
     margin-bottom: auto;
-    font-size: 13pt; } }
+    font-size: 13pt; }
+
+  /*restaurant-page*/
+  #maincontent2 {
+    flex-direction: row;
+    flex-wrap: wrap; }
+
+  .inside #map-container {
+    width: 50%;
+    margin-top: 67px;
+    order: 2;
+    margin-bottom: 0;
+    position: relative;
+    height: auto; }
+
+  .inside #map {
+    height: 100%;
+    position: absolute; }
+
+  #restaurant-container {
+    width: 50%;
+    order: 1; }
+
+  #restaurant-img {
+    height: auto;
+    flex: 1;
+    width: 100%; }
+
+  .inside #restaurant-name {
+    width: 100vh;
+    text-align: center; }
+
+  #reviews-container {
+    order: 3; } }
 @media only screen and (min-width: 960px) {
   body {
     max-width: 960px;
@@ -444,8 +475,15 @@ body.inside {
     margin-right: auto;
     background-color: bisque; }
 
+  body.inside {
+    padding-top: 100px;
+    max-width: 100%; }
+
   nav h1 {
     height: 80px; }
+
+  .inside nav h1 {
+    height: 60px; }
 
   nav h1 a {
     font-size: 36px; }
