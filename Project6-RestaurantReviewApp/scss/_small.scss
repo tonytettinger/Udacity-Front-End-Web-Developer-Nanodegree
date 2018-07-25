@@ -185,7 +185,6 @@ flex-direction: row;
 #restaurants-list li a {
   background-color: orange;
   padding: 10px;
-  border-bottom: 3px solid #eee;
   color: #fff;
   font-size: 16pt;
   text-align: center;
@@ -196,6 +195,7 @@ flex-direction: row;
   margin-top: auto;
   width: 100%;
   max-height: 30px;
+  margin-bottom: 0;
 }
 
 /* ====================== Restaurant Details ====================== */

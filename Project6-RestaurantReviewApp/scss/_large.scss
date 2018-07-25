@@ -5,10 +5,23 @@ body{
     background-color: bisque;
 }
 
+nav h1 {
+    height: 80px;
+}
+
+nav h1 a {
+    font-size: 36px;
+}
+
+
 #restaurants-list {
-    justify-content: center;
-    
+    justify-content: space-evenly;
 }
  #restaurants-list li {
-     width: 24.58%;
+     width: 24.3%;
+     margin-bottom: 1px;
+ }
+
+ .filter-options h2 {
+    font-size: 26px;
  }

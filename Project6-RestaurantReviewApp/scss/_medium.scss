@@ -1,20 +1,26 @@
+nav h1 {
+  height: 60px;
+}
+
+nav h1 a {
+  font-size: 32px;
+}
 #restaurants-list li {
   background-color: #fff;
-  border: 2px solid #ccc;
 }
 
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
       justify-content: space-around;
       flex-wrap: wrap;
-  
+      height: 100px;
     }
     
     .filter-options h2 {
-      width: 180px;
+      width: 140px;
     }
     .filter-options label {
-      width: 20%;
+      width: 30%;
     }
 
     /* ====================== Restaurant Listing ====================== */
