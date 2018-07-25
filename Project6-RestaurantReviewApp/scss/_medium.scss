@@ -69,11 +69,14 @@ nav h1 a {
 
     .inside #map-container{
       width: 50%;
-      margin-top: 67px;
       order: 2;
       margin-bottom: 0;
       position: relative;
       height: auto;
+      margin-top: 0;
+    }
+    #restaurant-name {
+     display: none;
     }
 
     .inside #map {
