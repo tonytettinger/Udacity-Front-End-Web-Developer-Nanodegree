@@ -4,6 +4,13 @@ let restaurants,
 var newMap
 var markers = []
 
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -159,7 +166,6 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-  li.alt = "wonderful";
 
   const image = document.createElement('img');
   image.alt = `${restaurant.name} ${restaurant.cuisine_type} restaurant` ;
