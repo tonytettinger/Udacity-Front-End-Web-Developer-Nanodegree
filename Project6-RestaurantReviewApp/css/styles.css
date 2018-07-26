@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_reset\.scss}line{font-family:\000036}}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,32 +21,46 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 /* HTML5 display-role reset for older browsers */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_reset\.scss}line{font-family:\0000327}}
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block; }
+  display: block;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_reset\.scss}line{font-family:\0000331}}
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_reset\.scss}line{font-family:\0000334}}
 ol, ul {
-  list-style: none; }
+  list-style: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_reset\.scss}line{font-family:\0000337}}
 blockquote, q {
-  quotes: none; }
+  quotes: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_reset\.scss}line{font-family:\0000340}}
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_reset\.scss}line{font-family:\0000345}}
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 /* CSS Document */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\000034}}
 body,
 td,
 th,
@@ -53,39 +68,53 @@ p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
   color: #333;
-  line-height: 1.5; }
+  line-height: 1.5;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000314}}
 body {
   background-color: #fdfdfd;
   margin: 0;
-  position: relative; }
+  position: relative;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000320}}
 ul,
 li {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
-  color: #333; }
+  color: #333;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000327}}
 a {
   color: orange;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000332}}
 a:hover,
 a:focus {
   color: #3397db;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000338}}
 a img {
-  border: none 0px #fff; }
+  border: none 0px #fff;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000342}}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: Verdana, Arial, Helvetica, sans-serif; }
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000351}}
 article,
 aside,
 canvas,
@@ -98,12 +127,16 @@ hgroup,
 menu,
 nav,
 section {
-  display: block; }
+  display: block;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000366}}
 #maincontent {
   background-color: #f3f3f3;
-  min-height: 100%; }
+  min-height: 100%;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000371}}
 #footer {
   background-color: #444;
   color: #aaa;
@@ -111,89 +144,132 @@ section {
   letter-spacing: 1px;
   padding: 25px;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 /* ====================== Navigation ====================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000383}}
 nav {
   width: 100%;
-  background-color: #252831; }
+  background-color: #252831;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000388}}
 nav h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 54px;
-  text-align: center; }
+  text-align: center;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\0000396}}
 nav h1 a {
   color: #fff;
   font-weight: bold;
   font-size: 16px;
   letter-spacing: 1px;
-  text-align: center; }
+  text-align: center;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003104}}
 #breadcrumb {
   padding: 10px 40px 16px;
   list-style: none;
   background-color: #eee;
   font-size: 17px;
   margin: 0;
-  width: 100%; }
+  width: 100%;
+}
 
 /* Display list items side by side */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003115}}
 #breadcrumb li {
   display: inline;
   color: orangered;
   font-weight: bold;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 /* Add a slash symbol (/) before/behind each list item */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003125}}
 #breadcrumb li + li:before {
   padding: 8px;
   color: black;
-  content: "/\00a0"; }
+  content: "/\00a0";
+}
 
 /* Add a color to all links inside the list */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003133}}
 #breadcrumb li a {
   color: #0275d8;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 /* Add a color on mouse-over */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003140}}
 #breadcrumb li a:hover {
   color: #01447e;
-  text-decoration: underline; }
+  text-decoration: underline;
+}
 
 /* ====================== Map ====================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003147}}
 #map {
   height: 400px;
   width: 100%;
-  background-color: #ccc; }
+  background-color: #ccc;
+}
 
 /* ====================== Restaurant Filtering ====================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003155}}
 .filter-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
   background-color: #3397DB;
-  align-items: center;
-  justify-content: center;
-  height: 130px; }
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 130px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003166}}
 .filter-options h2 {
   color: white;
   font-size: 20px;
   font-weight: normal;
   line-height: 1;
-  flex-shrink: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   margin-bottom: 0;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003177}}
 .filter-options label {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003182}}
 .filter-options select {
   background-color: white;
   border: 1px solid #fff;
@@ -203,32 +279,55 @@ nav h1 a {
   letter-spacing: 0;
   margin-top: 0;
   padding: 0 10px;
-  width: 100%; }
+  width: 100%;
+}
 
 /* ====================== Restaurant Listing ====================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003196}}
 #restaurants-list {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003206}}
 #restaurants-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: Arial, sans-serif;
   text-align: center;
   width: 100%;
   overflow: hidden;
-  justify-content: center;
-  align-items: center; }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003217}}
 #restaurants-list .restaurant-img {
   background-color: #ccc;
-  width: 100%; }
+  width: 100%;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003222}}
 #restaurants-list li h1 {
   color: #f18200;
   font-family: Arial, sans-serif;
@@ -238,12 +337,16 @@ nav h1 a {
   line-height: 1.3;
   margin: 20px 0 10px;
   text-transform: uppercase;
-  vertical-align: text-bottom; }
+  vertical-align: text-bottom;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003234}}
 #restaurants-list p {
   margin-bottom: 10px;
-  font-size: 13pt; }
+  font-size: 13pt;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003239}}
 #restaurants-list li a {
   background-color: orange;
   padding: 10px;
@@ -252,52 +355,77 @@ nav h1 a {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  flex: 0;
-  align-self: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  -ms-flex-item-align: center;
+      align-self: center;
   margin-top: auto;
   width: 100%;
   max-height: 30px;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+}
 
 /* ====================== Restaurant Details ====================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003257}}
 #maincontent2 {
   background-color: #f3f3f3;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  flex-wrap: wrap; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003266}}
 body.inside {
   padding-top: 110px;
-  max-width: 100%; }
+  max-width: 100%;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003271}}
 .inside header {
   position: fixed;
   z-index: 21000;
   top: 0;
   width: 100%;
   overflow: hidden;
-  height: 200px; }
+  height: 200px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003280}}
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   height: 200px;
   width: 100%;
   margin-bottom: auto;
   margin-top: auto;
-  flex: 1; }
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003290}}
 .inside #map {
   background-color: #ccc;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003296}}
 .inside #footer {
   bottom: 0;
   max-width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003302}}
 #restaurant-name {
   color: #f18200;
   font-family: Arial, sans-serif;
@@ -308,17 +436,23 @@ body.inside {
   line-height: 1.1;
   text-align: center;
   width: 100%;
-  padding: 20px 30px; }
+  padding: 20px 30px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003315}}
 #restaurant-address {
   font-size: 10pt;
-  margin: 15px; }
+  margin: 15px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003320}}
 #restaurant-hours td {
   color: #666;
   font-size: 10pt;
-  padding: 5px 15px; }
+  padding: 5px 15px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003326}}
 #restaurant-cuisine {
   background-color: #333;
   color: #ddd;
@@ -329,32 +463,56 @@ body.inside {
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-  width: 100%; }
+  width: 100%;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003339}}
 #restaurant-container,
 #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   width: 100%;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003351}}
 #restaurant-container img {
   height: auto;
-  flex: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
   width: 100%;
-  margin-top: auto; }
+  margin-top: auto;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003358}}
 #reviews-container {
   max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  max-width: 100%; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 100%;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003366}}
 #reviews-container h2 {
   color: #f58500;
   font-size: 24pt;
@@ -362,15 +520,24 @@ body.inside {
   letter-spacing: -1px;
   padding-bottom: 1pt;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003376}}
 #reviews-list {
   margin: 0;
   padding: 0;
   max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003385}}
 #reviews-list li {
   background-color: #fff;
   border: 2px solid #f3f3f3;
@@ -379,63 +546,103 @@ body.inside {
   overflow: hidden;
   position: relative;
   width: 85%;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   padding: 10px 15px;
-  max-width: 550px; }
+  max-width: 550px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003398}}
 #reviews-list li p:first-child {
   background-color: lightgray;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_small\.scss}line{font-family:\00003403}}
 #reviews-list li p:last-child {
   background-color: rgba(71, 75, 71, 0.1);
-  font-weight: bolder; }
+  font-weight: bolder;
+}
 
 @media only screen and (min-width: 560px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\000031}}
   nav h1 {
-    height: 60px; }
+    height: 60px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\000035}}
   nav h1 a {
-    font-size: 32px; }
+    font-size: 32px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\000038}}
   #restaurants-list li {
-    background-color: #fff; }
+    background-color: #fff;
+  }
 
   /* ====================== Restaurant Filtering ====================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000313}}
   .filter-options {
-    justify-content: space-around;
-    flex-wrap: wrap;
-    height: 100px; }
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 100px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000319}}
   .filter-options h2 {
-    width: 140px; }
+    width: 140px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000322}}
   .filter-options label {
-    width: 30%; }
+    width: 30%;
+  }
 
   /* ====================== Restaurant Listing ====================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000327}}
   #restaurants-list {
     background-color: #f3f3f3;
     list-style: outside none none;
     margin: 0;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around; }
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000337}}
   #restaurants-list li {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     font-family: Arial,sans-serif;
     text-align: center;
-    width: 32%; }
+    width: 32%;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000345}}
   #restaurants-list .restaurant-img {
     background-color: #ccc;
-    max-width: 100%; }
+    max-width: 100%;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000349}}
   #restaurants-list li h1 {
     color: #f18200;
     font-family: Arial,sans-serif;
@@ -445,74 +652,125 @@ body.inside {
     line-height: 1.3;
     margin: 20px 0 10px;
     text-transform: uppercase;
-    vertical-align: text-bottom; }
+    vertical-align: text-bottom;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000360}}
   #restaurants-list p {
     margin-bottom: auto;
-    font-size: 13pt; }
+    font-size: 13pt;
+  }
 
   /*restaurant-page*/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000365}}
   #maincontent2 {
-    flex-direction: row;
-    flex-wrap: wrap; }
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000370}}
   .inside #map-container {
     width: 50%;
-    order: 2;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
     margin-bottom: 0;
     position: relative;
     height: auto;
-    margin-top: 0; }
+    margin-top: 0;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000378}}
   #restaurant-name {
-    display: none; }
+    display: none;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000382}}
   .inside #map {
     height: 100%;
-    position: absolute; }
+    position: absolute;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000387}}
   #restaurant-container {
     width: 50%;
-    order: 1; }
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000392}}
   #restaurant-img {
     height: auto;
-    flex: 1;
-    width: 100%; }
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    width: 100%;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\0000398}}
   .inside #restaurant-name {
     width: 100vh;
-    text-align: center; }
+    text-align: center;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_medium\.scss}line{font-family:\00003103}}
   #reviews-container {
-    order: 3; } }
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+}
 @media only screen and (min-width: 960px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_large\.scss}line{font-family:\000031}}
   body {
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
-    background-color: bisque; }
+    background-color: bisque;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_large\.scss}line{font-family:\000038}}
   #maincontent2 {
-    max-width: 960px; }
+    max-width: 960px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_large\.scss}line{font-family:\0000312}}
   nav h1 {
-    height: 80px; }
+    height: 80px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_large\.scss}line{font-family:\0000316}}
   .inside nav h1 {
-    height: 60px; }
+    height: 60px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_large\.scss}line{font-family:\0000320}}
   nav h1 a {
-    font-size: 36px; }
+    font-size: 36px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_large\.scss}line{font-family:\0000325}}
   #restaurants-list {
-    justify-content: space-evenly; }
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_large\.scss}line{font-family:\0000328}}
   #restaurants-list li {
     width: 24.3%;
-    margin-bottom: 1px; }
+    margin-bottom: 1px;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Tony\'s\/Courses\/Udacity-FEND-NanoDegree\/Project6-RestaurantReviewApp\/scss\/_large\.scss}line{font-family:\0000333}}
   .filter-options h2 {
-    font-size: 26px; } }
+    font-size: 26px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
