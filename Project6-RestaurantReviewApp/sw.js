@@ -1,5 +1,7 @@
 const cacheName = "rest1";
-const filesToCache = ["/"];
+const filesToCache = ['http://localhost:8000/',
+    '/css/styles.css', '/js/dbhelper.js', 'js/main.js', '/js/restaurant_info.js', '/index.html', '/restaurant.html', 'data/restaurants.json'
+];
 
 self.addEventListener("install", function (event) {
     // Perform install steps
