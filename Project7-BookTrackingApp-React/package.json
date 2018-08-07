@@ -1,11 +1,13 @@
 {
   "dependencies": {
     "browser-router": "^0.2.0",
-    "prop-types": "^15.6.1",
+    "escape-string-regexp": "^1.0.5",
+    "prop-types": "^15.6.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "sort-by": "^1.2.0"
   },
   "devDependencies": {
     "react-scripts": "1.1.4"
