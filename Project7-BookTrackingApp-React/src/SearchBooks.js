@@ -16,28 +16,27 @@ class SearchBooks extends Component {
 
   updateQuery = (query) => {
     this.setState({ query: query})
-      console.log(this.state)
   }
 
   clearQuery = () => {
     this.setState({ query: '' })
   }
-      
+
 render() {
-    
+
     const {books} = this.props
     const { query } = this.state
 
     let showingBooks
     if (query) {
       const match = new RegExp(escapeRegExp(query), 'i')
-      showingBooks = books.filter((book) => match.test(book.title || book.author))
+      showingBooks = books.filter((book) => match.test(`${book.authors} ${book.title}`))
     } else {
       showingBooks = books
     }
 
     showingBooks.sort(sortBy('name'))
-    
+
     return(
         <div className="search-books">
             <div className="search-books-bar">
@@ -50,18 +49,19 @@ render() {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-                <input type="text" placeholder="Search by title or author"/>
+                <input type="text" placeholder="Search by title or author"  onChange={(event) => this.updateQuery(event.target.value)}/>
 
               </div>
             </div>
-        
-        <ol className='books-grid'>        
-<li>
+
+        <ol className='books-grid'>
+        {showingBooks.map((book) =>(
+        <li>
                         <div className="book">
                           <div className="book-top">
-                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("http://books.google.com/books/content?id=uu1mC6zWNTwC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73pGHfBNSsJG9Y8kRBpmLUft9O4BfItHioHolWNKOdLavw-SLcXADy3CPAfJ0_qMb18RmCa7Ds1cTdpM3dxAGJs8zfCfm8c6ggBIjzKT7XR5FIB53HHOhnsT7a0Cc-PpneWq9zX&source=gbs_api")' }}></div>
+                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
                             <div className="book-shelf-changer">
-                              <select 
+                              <select
                             onChange={(event) => this.updateQuery(event.target.value)}>
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
@@ -71,16 +71,17 @@ render() {
                               </select>
                             </div>
                           </div>
-                          <div className="book-title">1776</div>
-                          <div className="book-authors">David McCullough</div>
+                          <div className="book-title">{book.title}</div>
+                          <div className="book-authors">{book.author}</div>
                         </div>
 </li>
-</ol>        
+    ))}
+</ol>
 
 </div>
-        
+
     )
-}    
+}
 }
 
 export default SearchBooks;
