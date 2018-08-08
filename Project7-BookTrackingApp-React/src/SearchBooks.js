@@ -6,26 +6,30 @@ import sortBy from 'sort-by'
 
 class SearchBooks extends Component {
     static propTypes = {
-    contacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired
+    books: PropTypes.array.isRequired
   }
 
   state = {
-    query: ''
+    query: '',
   }
 
   updateQuery = (query) => {
     this.setState({ query: query})
   }
 
-  clearQuery = () => {
-    this.setState({ query: '' })
+  updateSelected = (selected) => {
+    this.setState((prevState) => ({
+    books: {
+        ...prevState.books,
+        selected: selected
+    }
+}))
   }
 
 render() {
 
     const {books} = this.props
-    const { query } = this.state
+    const {query, selected} = this.state
 
     let showingBooks
     if (query) {
@@ -56,13 +60,13 @@ render() {
 
         <ol className='books-grid'>
         {showingBooks.map((book) =>(
-        <li>
+        <li key={book.title}>
                         <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
                             <div className="book-shelf-changer">
-                              <select
-                            onChange={(event) => this.updateQuery(event.target.value)}>
+                              <select value={selected}
+                            onChange={(event) => this.updateSelected(event.target.value)}>
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>

@@ -5,6 +5,7 @@ import {Router, Route, Switch} from 'react-router'
 import SearchBooks from './SearchBooks'
 import * as BooksAPI from './BooksAPI'
 import Header from './Header'
+import OpenSearch from './OpenSearch'
 
 class BooksApp extends React.Component {
   state = {
@@ -22,17 +23,24 @@ class BooksApp extends React.Component {
         BooksAPI.getAll().then((books) => {
       this.setState({ books })
             console.log(this.state.books)
+            this.state.books.map((book)=>( book.selected = 'read'))
     })
-    } 
+    }
 
   render() {
     return (
-        <Route path = '/'
+      <div>
+        <Route path = '/search'
         render = {() => (
-        <SearchBooks 
+        <SearchBooks
         books = {this.state.books}/>
     )}/>
-                                               
+    <Route path = '/'
+    render = {() => (
+
+    <OpenSearch/>
+)}/>
+      </div>
     )
   }
 }
