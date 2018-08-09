@@ -2,7 +2,7 @@ import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 import {Router, Route, Switch} from 'react-router'
-import SearchBooks from './SearchBooks'
+import SearchBooksPage from './SearchBooksPage'
 import * as BooksAPI from './BooksAPI'
 import Header from './Header'
 import OpenSearch from './OpenSearch'
@@ -22,9 +22,15 @@ class BooksApp extends React.Component {
     componentDidMount(){
         BooksAPI.getAll().then((books) => {
       this.setState({ books })
-            console.log(this.state.books)
-            this.state.books.map((book)=>( book.selected = 'read'))
     })
+    }
+
+
+    selectionUpdate = (selection, id) => {
+      let ChangedBookIndex = this.state.books.findIndex(x => x.id === id)
+      let books = Object.assign([], this.state.books)
+      books[ChangedBookIndex].shelf = selection
+      this.setState({books})
     }
 
   render() {
@@ -32,13 +38,15 @@ class BooksApp extends React.Component {
       <div>
         <Route path = '/search'
         render = {() => (
-        <SearchBooks
-        books = {this.state.books}/>
+        <SearchBooksPage
+        books = {this.state.books} selectionUpdate={this.selectionUpdate}/>
     )}/>
-    <Route path = '/'
+    <Route exact path = '/'
     render = {() => (
-
+      <div>
+      <Header/>
     <OpenSearch/>
+    </div>
 )}/>
       </div>
     )
