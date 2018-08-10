@@ -9,6 +9,7 @@ updateQuery = (value)=> {
 
 render() {
     return(
+      <div className="app">
       <div className="search-books">
           <div className="search-books-bar">
             <Link className="close-search" to='/'>Close</Link>
@@ -24,7 +25,13 @@ render() {
 
             </div>
           </div>
+
+                    <div className="search-books-results">
+                       <ol className="books-grid"></ol>
+                     </div>
           </div>
+          </div>
+
     )
 }
 }
