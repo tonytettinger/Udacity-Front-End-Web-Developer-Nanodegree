@@ -4,8 +4,7 @@ import './App.css'
 import {Router, Route, Switch} from 'react-router'
 import SearchBooksPage from './SearchBooksPage'
 import * as BooksAPI from './BooksAPI'
-import Header from './Header'
-import OpenSearch from './OpenSearch'
+import MainPage from './MainPage'
 
 class BooksApp extends React.Component {
   state = {
@@ -19,8 +18,30 @@ class BooksApp extends React.Component {
     books: []
   }
 
+ shelf = {
+    none: {
+      selected: 'none',
+      h2: 'Unassigned Books'
+    },
+    currently:
+    {
+      selected: 'currentlyReading',
+      h2: 'Currently Reading'
+    },
+    read: {
+      selected: 'read',
+      h2: 'Read Books'
+    },
+    want: {
+      selected: 'wantToRead',
+      h2: 'Want to Read Books'
+    }
+  }
+
     componentDidMount(){
         BooksAPI.getAll().then((books) => {
+          //change all selected values to none as per project requirement
+          let booksSelectedNone = books.map((book) => book.shelf = 'none')
       this.setState({ books })
     })
     }
@@ -39,13 +60,12 @@ class BooksApp extends React.Component {
         <Route path = '/search'
         render = {() => (
         <SearchBooksPage
-        books = {this.state.books} selectionUpdate={this.selectionUpdate}/>
+        books = {this.state.books} selectionUpdate={this.selectionUpdate} shelf={this.shelf}/>
     )}/>
     <Route exact path = '/'
     render = {() => (
       <div>
-      <Header/>
-    <OpenSearch/>
+      <MainPage books ={this.state.books} shelf={this.shelf} selectionUpdate={this.selectionUpdate}/>
     </div>
 )}/>
       </div>

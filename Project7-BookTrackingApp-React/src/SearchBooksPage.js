@@ -27,7 +27,7 @@ class SearchBooksPage extends Component {
 
 render() {
 
-    const {books} = this.props
+    const {books,shelf} = this.props
     const {query, selected} = this.state
 
     let showingBooks
@@ -42,7 +42,10 @@ render() {
     return(
       <div>
         <SearchForm updateQuery={this.updateQuery}/>
-        <BooksGrid showingBooks={showingBooks} selectionUpdate={this.selectionUpdate}/>
+        <BooksGrid shelfToRender={shelf.none} Books={showingBooks} selectionUpdate={this.selectionUpdate}/>
+        <BooksGrid shelfToRender={shelf.currently} Books={showingBooks} selectionUpdate={this.selectionUpdate}/>
+        <BooksGrid shelfToRender={shelf.want} Books={showingBooks} selectionUpdate={this.selectionUpdate}/>
+        <BooksGrid shelfToRender={shelf.read} Books={showingBooks} selectionUpdate={this.selectionUpdate}/>
 </div>
 
     )

@@ -9,15 +9,15 @@ class BooksGrid extends Component {
   }
 
 render() {
-  const{showingBooks} = this.props
-  let amy = 'None'
+  const{Books, shelfToRender} = this.props
+
     return(
       <div className="bookshelf">
-                        <h2 className="bookshelf-title">Currently Reading</h2>
+                        <h2 className="bookshelf-title">{shelfToRender.h2}</h2>
                         <div className="bookshelf-books">
       <ol className='books-grid'>
-      {showingBooks.map((book) =>(
-  book.shelf === 'currentlyReading' &&(
+      {Books.map((book) =>(
+  book.shelf === shelfToRender.selected &&(
 
    <li key={book.title}>
                      <div className="book">
