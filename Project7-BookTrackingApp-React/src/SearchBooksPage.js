@@ -5,7 +5,10 @@ import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 import BooksGrid from './BooksGrid'
 import SearchForm from './SearchForm'
+import * as BooksAPI from './BooksAPI'
+import {ValidSearchTerms} from './ValidSearchTerms'
 
+const ValidSearchTermsToLowerCase = ValidSearchTerms.map((term) => term.toLowerCase());
 class SearchBooksPage extends Component {
     static propTypes = {
     books: PropTypes.array.isRequired
@@ -13,41 +16,51 @@ class SearchBooksPage extends Component {
 
   state = {
     query: '',
+    searched: []
   }
 
   updateQuery = (query) => {
     this.setState({ query: query})
-    console.log(query)
   }
 
-  selectionUpdate = (selection, id)=> {
-    this.props.selectionUpdate(selection, id)
-    console.log(selection)
+
+
+  selectionUpdate = (selection, book)=> {
+    this.props.selectionUpdate(selection, book)
+    let ChangedBookIndex = this.state.searched.findIndex(x => x.id === book.id)
+    let books = Object.assign([], this.state.searched)
+    books[ChangedBookIndex].shelf = selection
+    BooksAPI.update(book, selection)
   }
+
+isValidSearchCheck = (query) => {
+  if(query !==''){
+  return ValidSearchTermsToLowerCase.indexOf(query.toLowerCase()) !== -1;
+}
+}
+
 
 render() {
 
-    const {books,shelf} = this.props
-    const {query, selected} = this.state
+    const {books,shelf, checkBookShelfAssignment} = this.props
+    const {query, searched} = this.state
 
-    let showingBooks
     if (query) {
-      const match = new RegExp(escapeRegExp(query), 'i')
-      showingBooks = books.filter((book) => match.test(`${book.authors} ${book.title}`))
-    } else {
-      showingBooks = books
-    }
-
+      if (this.isValidSearchCheck(query)){
+      BooksAPI.search(query).then((booksfound)=> {
+        booksfound.map((book) => checkBookShelfAssignment(book))
+        this.setState({searched : booksfound})
+      })} else {
+  }}
 
     return(
       <div>
         <SearchForm updateQuery={this.updateQuery}/>
-        <BooksGrid shelfToRender={shelf.none} Books={showingBooks} selectionUpdate={this.selectionUpdate}/>
-        <BooksGrid shelfToRender={shelf.currently} Books={showingBooks} selectionUpdate={this.selectionUpdate}/>
-        <BooksGrid shelfToRender={shelf.want} Books={showingBooks} selectionUpdate={this.selectionUpdate}/>
-        <BooksGrid shelfToRender={shelf.read} Books={showingBooks} selectionUpdate={this.selectionUpdate}/>
+        <BooksGrid shelfToRender={shelf.none} Books={this.state.searched} selectionUpdate={this.selectionUpdate}/>
+        <BooksGrid shelfToRender={shelf.currently} Books={this.state.searched} selectionUpdate={this.selectionUpdate}/>
+        <BooksGrid shelfToRender={shelf.want} Books={searched} selectionUpdate={this.selectionUpdate}/>
+        <BooksGrid shelfToRender={shelf.read} Books={searched} selectionUpdate={this.selectionUpdate}/>
 </div>
-
     )
 }
 }

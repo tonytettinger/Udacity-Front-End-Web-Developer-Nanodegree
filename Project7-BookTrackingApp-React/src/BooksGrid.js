@@ -26,7 +26,7 @@ render() {
                          <div className="book-shelf-changer">
                            <select value={book.shelf}
                          onChange={(event) => {
-                           this.selectionUpdate(event.target.value, book.id)
+                           this.props.selectionUpdate(event.target.value, book)
                          }}>
                              <option value="move" disabled>Move to...</option>
                              <option value="currentlyReading">Currently Reading</option>

@@ -40,15 +40,33 @@ class BooksApp extends React.Component {
 
     componentDidMount(){
         BooksAPI.getAll().then((books) => {
-          //change all selected values to none as per project requirement
-          let booksSelectedNone = books.map((book) => book.shelf = 'none')
       this.setState({ books })
+      console.log(books)
     })
     }
 
+    checkBookShelfAssignment = (bookcheck) => {
+      let currentBooks = this.state.books
+      let bookShelfAssignment = currentBooks.find((book) => book.id === bookcheck.id)
+      if(bookShelfAssignment){
+        let bookShelf = bookShelfAssignment.shelf
+        return bookcheck.shelf = bookShelf
+      } else {
+        bookcheck.shelf = 'none'
+        return
+      }
+    }
 
-    selectionUpdate = (selection, id) => {
-      let ChangedBookIndex = this.state.books.findIndex(x => x.id === id)
+    selectionUpdate = (selection, book) => {
+      let currentBooks = this.state.books
+      let bookInLibraryCheck = currentBooks.find((currentbook) => book.id === currentbook.id)
+      if(!bookInLibraryCheck && (selection !== 'none')){
+        var newArray = Object.assign([], this.state.books)
+        newArray.push(book)
+        this.setState({books:newArray})
+        return
+      }
+      let ChangedBookIndex = this.state.books.findIndex(x => x.id === book.id)
       let books = Object.assign([], this.state.books)
       books[ChangedBookIndex].shelf = selection
       this.setState({books})
@@ -60,6 +78,7 @@ class BooksApp extends React.Component {
         <Route path = '/search'
         render = {() => (
         <SearchBooksPage
+        checkBookShelfAssignment={this.checkBookShelfAssignment}
         books = {this.state.books} selectionUpdate={this.selectionUpdate} shelf={this.shelf}/>
     )}/>
     <Route exact path = '/'
