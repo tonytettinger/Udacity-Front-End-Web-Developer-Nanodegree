@@ -5,10 +5,9 @@ It allows users to search books based on a limited number of keywords and select
 
 ## To install and launch the project
 
-To install the project:
-* npm start
-To start the project:
+To install and start the project, run the following command line code (with npm installed):
 * npm install
+* npm start
 
 ## Credits
 
