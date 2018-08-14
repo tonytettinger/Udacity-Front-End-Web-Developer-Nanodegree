@@ -1,20 +1,13 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
-import {Router, Route, Switch} from 'react-router'
+import {Route} from 'react-router'
 import SearchBooksPage from './SearchBooksPage'
 import * as BooksAPI from './BooksAPI'
 import MainPage from './MainPage'
 
 class BooksApp extends React.Component {
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    showSearchPage: true,
     books: []
   }
 
@@ -39,14 +32,13 @@ class BooksApp extends React.Component {
   }
 
     componentDidMount(){
-        BooksAPI.getAll().then((books) => {
+      BooksAPI.getAll().then((books) => {
       this.setState({ books })
-      console.log(books)
     })
     }
-
-    checkBookShelfAssignment = (bookcheck) => {
-      let currentBooks = this.state.books
+// Check if books were alredy assigned to a shelf, if not assign shelf 'none'
+  checkBookShelfAssignment = (bookcheck) => {
+      const currentBooks = this.state.books
       let bookShelfAssignment = currentBooks.find((book) => book.id === bookcheck.id)
       if(bookShelfAssignment){
         let bookShelf = bookShelfAssignment.shelf
@@ -56,8 +48,9 @@ class BooksApp extends React.Component {
         return
       }
     }
-
+// Update selection both on the server and on the current state as well
     selectionUpdate = (selection, book) => {
+      BooksAPI.update(book, selection)
       let currentBooks = this.state.books
       let bookInLibraryCheck = currentBooks.find((currentbook) => book.id === currentbook.id)
       if(!bookInLibraryCheck && (selection !== 'none')){

@@ -1,28 +1,38 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class BooksGrid extends Component {
 
+  static propTypes = {
+    books: PropTypes.array.isRequired,
+    selectionUpdate: PropTypes.func.isRequired
+  }
+
   selectionUpdate = (selection, id)=> {
     this.props.selectionUpdate(selection, id)
-    console.log(selection)
-    console.log(id)
   }
 
 render() {
-  const{Books, shelfToRender} = this.props
+  const{books, shelfToRender} = this.props
+  const checkThumbnailIsDefined = (book) =>{
+  return book.hasOwnProperty('imageLinks')
+}
 
     return(
       <div className="bookshelf">
                         <h2 className="bookshelf-title">{shelfToRender.h2}</h2>
                         <div className="bookshelf-books">
       <ol className='books-grid'>
-      {Books.map((book) =>(
+      {books.map((book) =>(
   book.shelf === shelfToRender.selected &&(
-
-   <li key={book.title}>
+   <li key={book.id}>
                      <div className="book">
                        <div className="book-top">
-                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                       {checkThumbnailIsDefined(book) ?
+                         (<div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>)
+                         : (<div className="book-cover" style={{ width: 128, height: 193 }}> No image available</div>)
+                       }
+
                          <div className="book-shelf-changer">
                            <select value={book.shelf}
                          onChange={(event) => {
