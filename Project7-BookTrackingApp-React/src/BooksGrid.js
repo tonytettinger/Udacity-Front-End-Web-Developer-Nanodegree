@@ -8,9 +8,6 @@ class BooksGrid extends Component {
     selectionUpdate: PropTypes.func.isRequired
   }
 
-  selectionUpdate = (selection, id)=> {
-    this.props.selectionUpdate(selection, id)
-  }
 
 render() {
   const{books, shelfToRender} = this.props

@@ -42,7 +42,8 @@ class BooksApp extends React.Component {
       let bookShelfAssignment = currentBooks.find((book) => book.id === bookcheck.id)
       if(bookShelfAssignment){
         let bookShelf = bookShelfAssignment.shelf
-        return bookcheck.shelf = bookShelf
+        bookcheck.shelf = bookShelf
+        return 
       } else {
         bookcheck.shelf = 'none'
         return
@@ -51,18 +52,21 @@ class BooksApp extends React.Component {
 // Update selection both on the server and on the current state as well
     selectionUpdate = (selection, book) => {
       BooksAPI.update(book, selection)
-      let currentBooks = this.state.books
-      let bookInLibraryCheck = currentBooks.find((currentbook) => book.id === currentbook.id)
-      if(!bookInLibraryCheck && (selection !== 'none')){
-        var newArray = Object.assign([], this.state.books)
-        newArray.push(book)
-        this.setState({books:newArray})
-        return
+      let foundBookIndex = this.state.books.findIndex(x => x.id === book.id)
+      if(foundBookIndex){
+      let booksUpdate = Object.assign([], this.state.books)
+      booksUpdate[foundBookIndex].shelf = selection
+      this.setState({
+        books: booksUpdate
+      })
+      } else {
+      let newBook = BooksAPI.get(book.id)
+      let booksUpdate = Object.assign([], this.state.books)
+      booksUpdate.push(newBook)
+      this.setState({
+        books: booksUpdate
+      })
       }
-      let ChangedBookIndex = this.state.books.findIndex(x => x.id === book.id)
-      let books = Object.assign([], this.state.books)
-      books[ChangedBookIndex].shelf = selection
-      this.setState({books})
     }
 
   render() {

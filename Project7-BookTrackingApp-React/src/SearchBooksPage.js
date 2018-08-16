@@ -29,19 +29,14 @@ class SearchBooksPage extends Component {
   }
 
   selectionUpdate = (selection, book) => {
+    console.log(book, selection)
     BooksAPI.update(book, selection)
-    let currentBooks = this.state.books
-    let bookInLibraryCheck = currentBooks.find((currentbook) => book.id === currentbook.id)
-    if(!bookInLibraryCheck && (selection !== 'none')){
-      var newArray = Object.assign([], this.state.books)
-      newArray.push(book)
-      this.setState({searched: newArray})
-      return
-    }
-    let ChangedBookIndex = this.state.books.findIndex(x => x.id === book.id)
-    let books = Object.assign([], this.state.books)
+    let ChangedBookIndex = this.state.searched.findIndex(x => x.id === book.id)
+    let books = Object.assign([], this.state.searched)
     books[ChangedBookIndex].shelf = selection
-    this.setState({serched: books})
+    this.setState({searched: books})
+    this.props.selectionUpdate(selection, book)
+    console.log(this.state.searched[ChangedBookIndex].shelf)
   }
 
 render() {
@@ -49,17 +44,19 @@ render() {
     const {shelf, checkBookShelfAssignment} = this.props
     const {query, searched} = this.state
 
-  if (query) {
+  if (query && query !== '') {
            if (this.isValidSearchCheck(query)){
       BooksAPI.search(query.toLowerCase().trim(), 5).then((booksfound)=> {
         booksfound.map((book) => checkBookShelfAssignment(book))
+        console.log(booksfound)
         this.setState({searched : booksfound})
+        this.setState({query : ''})
       })} else {
   }}
 
     return(
       <div>
-        <SearchForm emptyQuery={this.emptyQuery} updateQuery={this.updateQuery}/>
+        <SearchForm updateQuery={this.updateQuery}/>
         <BooksGrid shelfToRender={shelf.none} books={searched} selectionUpdate={this.selectionUpdate}/>
         <BooksGrid shelfToRender={shelf.currently} books={searched} selectionUpdate={this.selectionUpdate}/>
         <BooksGrid shelfToRender={shelf.want} books={searched} selectionUpdate={this.selectionUpdate}/>
