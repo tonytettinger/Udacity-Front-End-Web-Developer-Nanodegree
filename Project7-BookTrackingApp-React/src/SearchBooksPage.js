@@ -29,14 +29,12 @@ class SearchBooksPage extends Component {
   }
 
   selectionUpdate = (selection, book) => {
-    console.log(book, selection)
     BooksAPI.update(book, selection)
     let ChangedBookIndex = this.state.searched.findIndex(x => x.id === book.id)
     let books = Object.assign([], this.state.searched)
     books[ChangedBookIndex].shelf = selection
     this.setState({searched: books})
     this.props.selectionUpdate(selection, book)
-    console.log(this.state.searched[ChangedBookIndex].shelf)
   }
 
 render() {
@@ -48,7 +46,6 @@ render() {
            if (this.isValidSearchCheck(query)){
       BooksAPI.search(query.toLowerCase().trim(), 5).then((booksfound)=> {
         booksfound.map((book) => checkBookShelfAssignment(book))
-        console.log(booksfound)
         this.setState({searched : booksfound})
         this.setState({query : ''})
       })} else {
