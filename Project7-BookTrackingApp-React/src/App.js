@@ -60,12 +60,14 @@ class BooksApp extends React.Component {
         books: booksUpdate
       })
       } else {
-      let newBook = BooksAPI.get(book.id)
-      let booksUpdate = Object.assign([], this.state.books)
-      booksUpdate.push(newBook)
-      this.setState({
-        books: booksUpdate
+      BooksAPI.get(book.id).then((book) => {
+            let booksUpdate = Object.assign([], this.state.books)
+            booksUpdate.push(book)
+            this.setState({
+              books: booksUpdate
+              })
       })
+      
       }
     }
 

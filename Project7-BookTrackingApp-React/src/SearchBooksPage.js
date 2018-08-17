@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import BooksGrid from './BooksGrid'
 import SearchForm from './SearchForm'
 import * as BooksAPI from './BooksAPI'
-import {ValidSearchTerms} from './ValidSearchTerms'
-import ErrorBoundary from './ErrorBoundary'
 
 class SearchBooksPage extends Component {
   static propTypes = {
@@ -17,8 +15,6 @@ class SearchBooksPage extends Component {
     searched: [],
     validTerm: true
   }
-
-  invalidQuerry = () => true
 
   updateQuery = (query) => {
     this.setState({ query: query })
@@ -40,13 +36,7 @@ class SearchBooksPage extends Component {
         query: ''
       })
     }
-    } 
-
-  isValidSearchCheck = (query) => {
-    if(query !==''){
-    return ValidSearchTermsToLowerCase.indexOf(query.toLowerCase().trim()) !== -1;
-  }
-  }
+    }
 
   selectionUpdate = (selection, book) => {
     BooksAPI.update(book, selection)
@@ -59,8 +49,8 @@ class SearchBooksPage extends Component {
 
 render() {
 
-    const {shelf, checkBookShelfAssignment} = this.props
-    const {query, searched, validTerm} = this.state
+    const {shelf} = this.props
+    const {searched, validTerm} = this.state
 
     return(
       <div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import ErrorBoundary from './ErrorBoundary'
 class SearchForm extends Component {
 
 updateQuery = (value)=> {
