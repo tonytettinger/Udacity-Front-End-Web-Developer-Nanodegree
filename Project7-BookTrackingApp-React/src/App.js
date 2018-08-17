@@ -53,7 +53,7 @@ class BooksApp extends React.Component {
     selectionUpdate = (selection, book) => {
       BooksAPI.update(book, selection)
       let foundBookIndex = this.state.books.findIndex(x => x.id === book.id)
-      if(foundBookIndex){
+      if(foundBookIndex !== -1){
       let booksUpdate = Object.assign([], this.state.books)
       booksUpdate[foundBookIndex].shelf = selection
       this.setState({

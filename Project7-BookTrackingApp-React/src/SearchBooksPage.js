@@ -4,8 +4,7 @@ import BooksGrid from './BooksGrid'
 import SearchForm from './SearchForm'
 import * as BooksAPI from './BooksAPI'
 import {ValidSearchTerms} from './ValidSearchTerms'
-
-const ValidSearchTermsToLowerCase = ValidSearchTerms.map((term) => term.toLowerCase().trim());
+import ErrorBoundary from './ErrorBoundary'
 
 class SearchBooksPage extends Component {
   static propTypes = {
@@ -16,11 +15,32 @@ class SearchBooksPage extends Component {
   state = {
     query: '',
     searched: [],
+    validTerm: true
   }
 
+  invalidQuerry = () => true
+
   updateQuery = (query) => {
-    this.setState({ query: query})
-  }
+    this.setState({ query: query })
+    if (query !== '') {
+      if ((query)) {
+        
+        BooksAPI.search(query)
+        .then((booksfound) => {
+          booksfound.map((book) => this.props.checkBookShelfAssignment(book))
+          this.setState({ searched: booksfound, validTerm: true})
+        })
+        .catch((error) => {
+          this.setState({validTerm: false})
+        })
+      }  
+    } else if (query === '') {
+      this.setState({
+        searched: [],
+        query: ''
+      })
+    }
+    } 
 
   isValidSearchCheck = (query) => {
     if(query !==''){
@@ -40,20 +60,11 @@ class SearchBooksPage extends Component {
 render() {
 
     const {shelf, checkBookShelfAssignment} = this.props
-    const {query, searched} = this.state
-
-  if (query && query !== '') {
-           if (this.isValidSearchCheck(query)){
-      BooksAPI.search(query.toLowerCase().trim(), 5).then((booksfound)=> {
-        booksfound.map((book) => checkBookShelfAssignment(book))
-        this.setState({searched : booksfound})
-        this.setState({query : ''})
-      })} else {
-  }}
+    const {query, searched, validTerm} = this.state
 
     return(
       <div>
-        <SearchForm updateQuery={this.updateQuery}/>
+        <SearchForm updateQuery={this.updateQuery} validTerm={validTerm}/>
         <BooksGrid shelfToRender={shelf.none} books={searched} selectionUpdate={this.selectionUpdate}/>
         <BooksGrid shelfToRender={shelf.currently} books={searched} selectionUpdate={this.selectionUpdate}/>
         <BooksGrid shelfToRender={shelf.want} books={searched} selectionUpdate={this.selectionUpdate}/>
