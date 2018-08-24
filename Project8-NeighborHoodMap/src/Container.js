@@ -4,8 +4,19 @@ import React, {
 } from 'react';
 import GoogleApiComponent from './GoogleApiComponent'
 import Marker from './Marker'
+import * as FoursquareAPI from './FoursquareAPI'
 
 export class Container extends React.Component {
+
+       componentDidMount() {
+           const self = this;
+           FoursquareAPI.getList().then(markers => 
+                self.setState({
+                markers: markers
+            })
+        )
+       }
+
     render() {
         const style = {
             width: '100vw',
@@ -22,7 +33,14 @@ export class Container extends React.Component {
         }
         return (<div stlye={style}>
                 <Map google = {this.props.google}>
-                <Marker position = {pos}/>
+                
+                <Marker lat = {
+                        37.759703
+                }
+                    lng = {
+                        -122.428093
+                    }
+                    />
                 </Map>
                 </div>
         )

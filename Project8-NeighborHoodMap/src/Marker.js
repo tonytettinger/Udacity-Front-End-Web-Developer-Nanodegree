@@ -8,27 +8,39 @@ export class Marker extends React.Component {
     componentDidUpdate(prevProps) {
         if ((this.props.map !== prevProps.map) ||
             (this.props.position !== prevProps.position)) {
-                FoursquareAPI.getList()
-            this.renderMarker();
+                FoursquareAPI.getList().then(res => this.renderMarker(res))
+            
         }
     }
 
-     renderMarker() {
+     renderMarker(venues) {
          let {
              map,
              google,
-             position,
-             mapCenter
+             mapCenter,
          } = this.props;
 
-         let pos = position || mapCenter;
-         position = new google.maps.LatLng(pos.lat, pos.lng);
+         venues.map(venue => {
+             let lng = venue.location.lng
+             let lat = venue.location.lat
 
-         const pref = {
-             map: map,
-             position: position
-         };
-         this.marker = new google.maps.Marker(pref);
+             let position = new google.maps.LatLng(lat, lng);
+             const pref = {
+                 map: map,
+                 position: position,
+                 animation: google.maps.Animation.DROP
+             };
+
+             let marker = new google.maps.Marker(pref);
+
+             marker.info = new google.maps.InfoWindow({
+                 content: 'yay'
+             });
+
+             google.maps.event.addListener(marker, 'click', function () {
+                 marker.info.open(map, marker);
+             });
+         })
      }
 
     render() {
