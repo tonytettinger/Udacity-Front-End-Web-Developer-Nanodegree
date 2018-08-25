@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {
+  Navbar,
+  Jumbotron,
+  Button,
+  Grid,
+  Row,
+  Col,
+  PageHeader
+} from 'react-bootstrap';
+
+import Container from './Container'
 
 class App extends Component {
   render() {
     return (
-      <iframe
-      width = "600"
-      height = "450"
-      frameborder = "0"
-      style = "border:0"
-      src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCQxUvYPmq2t3cMSz0ulVZ4Wu4ZJwImNjA &
-        q = Space + Needle, Seattle + WA " allowfullscreen> <
-        /iframe>
-    );
+      <Grid>
+        
+        <Row>
+          < PageHeader >
+            Neighborhood Map < small > Udacity final project < /small> <
+            /PageHeader>
+          < Container xs = {
+            6
+          }
+          md = {
+            4
+          } > < /Container>
+        </Row>
+      </Grid>
+    )
   }
 }
 

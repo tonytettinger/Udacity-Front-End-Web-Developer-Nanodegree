@@ -5,6 +5,14 @@ import React, {
 import GoogleApiComponent from './GoogleApiComponent'
 import Marker from './Marker'
 import * as FoursquareAPI from './FoursquareAPI'
+import {
+    Navbar,
+    Jumbotron,
+    Button,
+    Grid,
+    Row,
+    Col
+} from 'react-bootstrap';
 
 export class Container extends React.Component {
 
@@ -27,18 +35,17 @@ export class Container extends React.Component {
 
     render() {
         const style = {
-            width: '100vw',
-            height: '100vh'
+            width: '100%',
+            height: '100%'
         }
 
         if (!this.props.loaded) {
             return <div> Loading... < /div>
         }
-        return (<div stlye={style}>
+        return (
                 <Map google = {this.props.google}>
                 <Marker visible ={this.state.visible}/>
                 </Map>
-                </div>
         )
     }
 }
