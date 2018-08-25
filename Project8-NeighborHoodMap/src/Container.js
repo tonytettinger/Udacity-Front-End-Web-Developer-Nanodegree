@@ -8,6 +8,14 @@ import * as FoursquareAPI from './FoursquareAPI'
 
 export class Container extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            visible: true
+        };
+    }
+
        componentDidMount() {
            const self = this;
            FoursquareAPI.getList().then(markers => 
@@ -23,24 +31,12 @@ export class Container extends React.Component {
             height: '100vh'
         }
 
-        const pos = {
-            lat: 37.759703,
-            lng: -122.428093
-        }
-
         if (!this.props.loaded) {
             return <div> Loading... < /div>
         }
         return (<div stlye={style}>
                 <Map google = {this.props.google}>
-                
-                <Marker lat = {
-                        37.759703
-                }
-                    lng = {
-                        -122.428093
-                    }
-                    />
+                <Marker visible ={this.state.visible}/>
                 </Map>
                 </div>
         )

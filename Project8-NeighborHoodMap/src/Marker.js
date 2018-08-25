@@ -5,10 +5,15 @@ import * as FoursquareAPI from './FoursquareAPI'
 
 export class Marker extends React.Component {
 
+    
+
     componentDidUpdate(prevProps) {
+        let venues = ['burger', 'steak']
         if ((this.props.map !== prevProps.map) ||
             (this.props.position !== prevProps.position)) {
-                FoursquareAPI.getList().then(res => this.renderMarker(res))
+                venues.map(venue =>{
+                    FoursquareAPI.getList(venue).then(res => this.renderMarker(res))
+                    })
             
         }
     }
@@ -33,12 +38,34 @@ export class Marker extends React.Component {
 
              let marker = new google.maps.Marker(pref);
 
+             let innerContent = `<div>Name: ${venue.name}</div>
+             <div>Address: ${venue.location.formattedAddress}</div>`
+
              marker.info = new google.maps.InfoWindow({
-                 content: 'yay'
+                 content: innerContent
              });
 
+             marker.activeWindow = false;
+             
+             marker.setVisible(this.props.visible)
+
              google.maps.event.addListener(marker, 'click', function () {
-                 marker.info.open(map, marker);
+                 if (marker.activeWindow != false) {
+                 marker.info.close(map, marker);
+                 marker.activeWindow = false;
+             } else{
+                marker.info.open(map, marker);
+                marker.activeWindow = true;
+             }
+             //toggle bouncing animation
+
+             if (marker.getAnimation() !== null) {
+                 marker.setAnimation(null);
+             } else {
+                 marker.setAnimation(google.maps.Animation.BOUNCE);
+             }
+
+
              });
          })
      }
