@@ -3,7 +3,6 @@ import React, {
     Component
 } from 'react';
 import GoogleApiComponent from './GoogleApiComponent'
-import Marker from './Marker'
 import * as FoursquareAPI from './FoursquareAPI'
 import {
     Navbar,
@@ -13,6 +12,7 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
+import Marker from './Marker'
 
 export class Container extends React.Component {
 
@@ -24,27 +24,23 @@ export class Container extends React.Component {
         };
     }
 
-       componentDidMount() {
-           const self = this;
-           FoursquareAPI.getList().then(markers => 
-                self.setState({
-                markers: markers
-            })
-        )
-       }
-
     render() {
         const style = {
-            width: '100%',
-            height: '100%'
+            width: '80%',
+            height: '100vh'
         }
 
         if (!this.props.loaded) {
-            return <div> Loading... < /div>
+            return <div> Loading... </div>
         }
         return (
-                <Map google = {this.props.google}>
-                <Marker visible ={this.state.visible}/>
+                <Map google = {this.props.google} style={style}>
+                < Marker markerUpdate = {
+                    this.props.markerUpdate
+                }
+                markersLoaded = {
+                    this.props.markersLoaded
+                } venues={this.props.venues}/> 
                 </Map>
         )
     }

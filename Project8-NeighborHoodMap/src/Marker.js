@@ -4,19 +4,25 @@ import React, {
 import * as FoursquareAPI from './FoursquareAPI'
 
 export class Marker extends React.Component {
-
+    state = {
+        markers: [],
+        markersloaded: false
+    }
     
 
     componentDidUpdate(prevProps) {
         let venues = ['burger', 'steak']
         if ((this.props.map !== prevProps.map) ||
             (this.props.position !== prevProps.position)) {
-                venues.map(venue =>{
+                if(!this.state.markersLoaded){
+                this.props.venues.map(venue =>{
                     FoursquareAPI.getList(venue).then(res => this.renderMarker(res))
                     })
+                    }
             
         }
     }
+
 
      renderMarker(venues) {
          let {
@@ -25,7 +31,8 @@ export class Marker extends React.Component {
              mapCenter,
          } = this.props;
 
-         venues.map(venue => {
+
+         venues.forEach(venue => {
              let lng = venue.location.lng
              let lat = venue.location.lat
 
@@ -33,11 +40,17 @@ export class Marker extends React.Component {
              const pref = {
                  map: map,
                  position: position,
-                 animation: google.maps.Animation.DROP
+                 animation: google.maps.Animation.DROP,
+                 category: venue
              };
 
              let marker = new google.maps.Marker(pref);
-
+             this.setState({
+                 markers: [...this.state.markers, marker]},
+                     function () {
+                         console.log(this.state.markers)
+             })
+             this.props.markerUpdate(marker)
              let innerContent = `<div>Name: ${venue.name}</div>
              <div>Address: ${venue.location.formattedAddress}</div>`
 
@@ -64,9 +77,10 @@ export class Marker extends React.Component {
              } else {
                  marker.setAnimation(google.maps.Animation.BOUNCE);
              }
-
-
              });
+         })
+         this.setState({
+             markersloaded: true,
          })
      }
 
