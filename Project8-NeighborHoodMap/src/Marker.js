@@ -11,12 +11,11 @@ export class Marker extends React.Component {
     
 
     componentDidUpdate(prevProps) {
-        let venues = ['burger', 'steak']
         if ((this.props.map !== prevProps.map) ||
             (this.props.position !== prevProps.position)) {
                 if(!this.state.markersLoaded){
-                this.props.venues.map(venue =>{
-                    FoursquareAPI.getList(venue).then(res => this.renderMarker(res))
+                this.props.venues.map(venuecategory =>{
+                    FoursquareAPI.getList(venuecategory).then(venueresult => this.renderMarker(venueresult, venuecategory))
                     })
                     }
             
@@ -24,7 +23,7 @@ export class Marker extends React.Component {
     }
 
 
-     renderMarker(venues) {
+     renderMarker(venueresult, venuecategory) {
          let {
              map,
              google,
@@ -32,7 +31,7 @@ export class Marker extends React.Component {
          } = this.props;
 
 
-         venues.forEach(venue => {
+         venueresult.forEach(venue => {
              let lng = venue.location.lng
              let lat = venue.location.lat
 
@@ -41,10 +40,12 @@ export class Marker extends React.Component {
                  map: map,
                  position: position,
                  animation: google.maps.Animation.DROP,
-                 category: venue
+                 category: venuecategory,
+                 visibility: 'visible'
              };
 
              let marker = new google.maps.Marker(pref);
+             
              this.setState({
                  markers: [...this.state.markers, marker]},
                      function () {

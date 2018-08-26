@@ -33,21 +33,27 @@ class App extends Component {
    markerUpdate = (marker) => {
      this.setState({
          markers: [...this.state.markers, marker]
-       },
-       function () {
-         console.log(this.state.markers)
        })
    }
 
-   callVisibility() {
-     let markerState = Object.assign([], this.state.markers)
-     markerState.forEach(marker => {
+   callVisibility(cat) {
+     this.state.markers.map(marker => {
+  
+       if(marker.category === cat && marker.visibility === 'visible'){
+        console.log('visibilitytoturnoff')
        marker.setVisible(false)
-     })
-     this.setState({
-       markers: markerState 
+       marker.visibility = 'invisible'
+       console.log(marker.title)
+       } else if (marker.category === cat && marker.visibility === 'invisible') {
+         marker.setVisible(true)
+        marker.visibility = 'visible'
+       }
      })
    }  
+
+   categoryCall(category){
+     this.callVisibility(category)
+   }
    
   render() {
     return (
@@ -55,10 +61,10 @@ class App extends Component {
         <Row>
            <Col md = {6}
            sm = {6} >
-           <PageHeader className = 'header' onClick={this.callVisibility}>
+           <PageHeader className = 'header'>
              Neighborhood Map < small > Udacity final project < /small>   <
              /PageHeader>
-            <Dropdown venues={this.state.venues}></Dropdown>
+            <Dropdown venues={this.state.venues} callVisibility={this.callVisibility}></Dropdown>
                </Col>
                <Col md = {6} sm={6}>
                  <Container markerUpdate = {

@@ -12,8 +12,8 @@ import React, {
         return(
     <DropdownButton bsSize="large" title = {'Places to eat'} >
     {this.props.venues.map(venue =>
-        <MenuItem eventKey = "1"
-    active = "true" > {venue} </MenuItem>)}
+        <MenuItem eventKey = {venue}
+    active = "true" onSelect={this.props.callVisibility}> {venue} </MenuItem>)}
      </DropdownButton>
      )
 }
