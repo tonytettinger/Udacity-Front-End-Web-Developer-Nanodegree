@@ -14,7 +14,7 @@ import React, {
         return(
     < DropdownButton bsSize = "large"
     title = {
-        'Places to eat'
+        'Select places to eat and drink'
     }
     id = {'PlacesToEat'}>
     {this.props.venues.map(venue =>
