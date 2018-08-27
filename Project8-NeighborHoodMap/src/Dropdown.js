@@ -16,8 +16,7 @@ import React, {
     title = {
         'Places to eat'
     }
-    id = {'PlacesToEat'}
-    active = {this.props.active}>
+    id = {'PlacesToEat'}>
     {this.props.venues.map(venue =>
         <MenuItem key={venue} eventKey = {venue} active={this.props.active[this.props.getIndex(venue)]}
     onSelect={this.props.callVisibility}> {venue} </MenuItem>)}

@@ -1,3 +1,6 @@
+import React, {
+    Component
+} from 'react';
 import * as FoursquareAPI from './FoursquareAPI'
 
 export class Marker extends React.Component {
@@ -5,7 +8,6 @@ export class Marker extends React.Component {
         markersloaded: false
     }
     
-
     componentDidUpdate(prevProps) {
         if ((this.props.map !== prevProps.map) ||
             (this.props.position !== prevProps.position)) {
@@ -17,6 +19,7 @@ export class Marker extends React.Component {
             
         }
     }
+
 
      renderMarker(venueresult, venuecategory) {
          let {

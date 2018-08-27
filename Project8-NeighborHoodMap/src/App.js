@@ -10,6 +10,7 @@ import {
 
 import Container from './Container'
 import Dropdown from './Dropdown'
+import List from './List'
 
 class App extends Component {
 
@@ -43,8 +44,14 @@ class App extends Component {
          this.setState({
            active: activeState  
          })
-      }
+      } else if (this.state.active[index] === false) {
+        let activeState = Object.assign([], this.state.active)
+        activeState[index] = true
+        this.setState({
+          active: activeState
+        })
    }
+  }
 
    getIndex(venue) {
      let venues = this.state.venues
@@ -76,6 +83,9 @@ class App extends Component {
              Neighborhood Map < small > Udacity final project < /small>   <
              /PageHeader>
             <Dropdown venues={this.state.venues} callVisibility={this.callVisibility} active={this.state.active} getIndex={this.getIndex}></Dropdown>
+            <List venues = {this.state.venues}
+            active = {this.state.active}
+            getIndex = {this.getIndex}/>
                </Col>
                <Col md = {6} sm={6}>
                  <Container markerUpdate = {
