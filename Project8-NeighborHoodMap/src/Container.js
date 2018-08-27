@@ -26,8 +26,7 @@ export class Container extends React.Component {
 
     render() {
         const style = {
-            width: '100vh',
-            height: '100vh'
+            height: '100vh',
         }
 
         if (!this.props.loaded) {

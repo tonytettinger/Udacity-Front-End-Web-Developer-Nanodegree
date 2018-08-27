@@ -15,7 +15,6 @@ export class List extends React.Component {
                 <ListGroup>
                     {this.props.venues.map(venue =>
                             <ListGroupItem key = {venue}
-                            eventKey = {venue}
                             active = {this.props.active[this.props.getIndex(venue)]}> {venue}
                             </ListGroupItem>)
                     } 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   Grid,
@@ -80,17 +79,15 @@ class App extends Component {
            <Col md = {6}
            sm = {6} >
            <PageHeader className = 'header'>
-             Neighborhood Map < small > Udacity final project < /small>   <
-             /PageHeader>
+              <div> Neighborhood Map</div>
+              <small>By Antal Tettinger</small></PageHeader>
             <Dropdown venues={this.state.venues} callVisibility={this.callVisibility} active={this.state.active} getIndex={this.getIndex}></Dropdown>
             <List venues = {this.state.venues}
             active = {this.state.active}
             getIndex = {this.getIndex}/>
                </Col>
                <Col md = {6} sm={6}>
-                 <Container markerUpdate = {
-                   this.markerUpdate
-                 }
+                 <Container markerUpdate = {this.markerUpdate}
                  markersLoaded = {
                    this.state.markersLoaded
                  } venues={this.state.venues}> < /Container>
