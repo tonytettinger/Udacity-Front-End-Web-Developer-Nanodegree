@@ -7,13 +7,20 @@ import React, {
  } from 'react-bootstrap';
  
  export class Dropdown extends React.Component {
- 
+    state = {
+        venue : false
+    }
     render(){
         return(
-    <DropdownButton bsSize="large" title = {'Places to eat'} >
+    < DropdownButton bsSize = "large"
+    title = {
+        'Places to eat'
+    }
+    id = {'PlacesToEat'}
+    active = {this.props.active}>
     {this.props.venues.map(venue =>
-        <MenuItem eventKey = {venue}
-    active = "true" onSelect={this.props.callVisibility}> {venue} </MenuItem>)}
+        <MenuItem key={venue} eventKey = {venue} active={this.props.active[this.props.getIndex(venue)]}
+    onSelect={this.props.callVisibility}> {venue} </MenuItem>)}
      </DropdownButton>
      )
 }

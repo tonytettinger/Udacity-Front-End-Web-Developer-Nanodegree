@@ -26,7 +26,7 @@ export class Container extends React.Component {
 
     render() {
         const style = {
-            width: '80%',
+            width: '100vh',
             height: '100vh'
         }
 

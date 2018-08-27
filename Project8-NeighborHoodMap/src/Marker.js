@@ -1,11 +1,7 @@
-import React, {
-    Component
-} from 'react';
 import * as FoursquareAPI from './FoursquareAPI'
 
 export class Marker extends React.Component {
     state = {
-        markers: [],
         markersloaded: false
     }
     
@@ -21,7 +17,6 @@ export class Marker extends React.Component {
             
         }
     }
-
 
      renderMarker(venueresult, venuecategory) {
          let {
@@ -41,16 +36,12 @@ export class Marker extends React.Component {
                  position: position,
                  animation: google.maps.Animation.DROP,
                  category: venuecategory,
-                 visibility: 'visible'
+                 visibility: 'visible',
+                 active: 'active'
              };
 
              let marker = new google.maps.Marker(pref);
              
-             this.setState({
-                 markers: [...this.state.markers, marker]},
-                     function () {
-                         console.log(this.state.markers)
-             })
              this.props.markerUpdate(marker)
              let innerContent = `<div>Name: ${venue.name}</div>
              <div>Address: ${venue.location.formattedAddress}</div>`
@@ -78,6 +69,10 @@ export class Marker extends React.Component {
              } else {
                  marker.setAnimation(google.maps.Animation.BOUNCE);
              }
+             });
+
+             google.maps.event.addListener(marker.info, 'closeclick', function () {
+                 marker.setAnimation(null);
              });
          })
          this.setState({
