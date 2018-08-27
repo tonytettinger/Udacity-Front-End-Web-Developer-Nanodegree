@@ -1,17 +1,17 @@
-#Udacity NeighborHoodMap (Final Project)
+# Udacity NeighborHoodMap (Final Project)
 
-##Description
+## Description
 
 This is the final Udacity Project for the Front-End Web Developer Nanodegree.
 I have focused on the functionality, GoogleMaps API is used to render the map and the FourSquare API to fetch data regarding pre-selected venues for food and drinks.
 The map markers drop down in an animated fashion, bounce and show an infowindow on click.
 The dropdown menu controls the displayed markers, while it keeps a state and shows which marker is shown (active is blue).
 
-##How to use:
+## How to use:
 1. Please install dependencies : npm install
 2. Start the project: npm start
 
-##Credits:
+## Credits:
 The project was created with Create React App:
 Source: https://github.com/facebook/create-react-app
 
