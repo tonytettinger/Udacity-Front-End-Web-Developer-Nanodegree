@@ -22,4 +22,3 @@ Source: https://gist.github.com/auser/1d55aa3897f15d17caf21dc39b85b663
 
 For styling React Bootstrap has been used:
 Source: https://react-bootstrap.github.io/
-
