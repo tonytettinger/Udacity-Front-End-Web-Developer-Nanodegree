@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import GoogleApiComponent from './GoogleApiComponent'
 import Marker from './Marker'
+import Error from './Error'
 
 export class Container extends React.Component {
 
@@ -21,17 +22,22 @@ export class Container extends React.Component {
         }
 
         if (!this.props.loaded) {
-            return <div> Loading... </div>
+            return <div> Loading... If loading takes too long there might be a connection problem to the Google Maps Server. Please check your connection and try and reload the page in that case.</div>
         }
+
         return (
+            <Error>
                 <Map google = {this.props.google} style={style}>
+               
                 < Marker markerUpdate = {
                     this.props.markerUpdate
                 }
                 markersLoaded = {
                     this.props.markersLoaded
                 } venues={this.props.venues}/> 
+                
                 </Map>
+            </Error>
         )
     }
 }

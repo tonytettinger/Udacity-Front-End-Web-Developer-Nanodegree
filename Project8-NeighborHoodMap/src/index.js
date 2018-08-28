@@ -6,7 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import Container from './Container'
 import './index.css';
 import './App.css'
+import ErrorBoundary from './Error'
 
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(< App / >, document.getElementById('root'));
 registerServiceWorker();

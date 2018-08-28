@@ -2,6 +2,7 @@ import React, {
     Component
 } from 'react';
 import * as FoursquareAPI from './FoursquareAPI'
+import Dropdown from './Dropdown'
 
 export class Marker extends React.Component {
     state = {
@@ -13,7 +14,11 @@ export class Marker extends React.Component {
             (this.props.position !== prevProps.position)) {
                 if(!this.state.markersLoaded){
                 this.props.venues.map(venuecategory =>{
-                    FoursquareAPI.getList(venuecategory).then(venueresult => this.renderMarker(venueresult, venuecategory))
+                    FoursquareAPI.getList(venuecategory)
+                    .then(venueresult => this.renderMarker(venueresult, venuecategory))
+                    .catch(function (error) {
+                        alert("Sorry, something went wrong when fetching the venues from FourSquare. Please reload the page.")
+                    })
                     })
                     }
             
@@ -39,7 +44,8 @@ export class Marker extends React.Component {
                  animation: google.maps.Animation.DROP,
                  category: venuecategory,
                  visibility: 'visible',
-                 active: 'active'
+                 active: 'inactive',
+                 name: venue.name
              };
 
              let marker = new google.maps.Marker(pref);

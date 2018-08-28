@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ErrorBoundary from './Error';
 import './App.css';
 import {
   Map
@@ -9,25 +10,27 @@ import {
   Col,
   PageHeader
 } from 'react-bootstrap';
-
 import Container from './Container'
 import Dropdown from './Dropdown'
 import List from './List'
+import ListVenues from './ListVenues'
 
 class App extends Component {
 
      state = {
        venues: ['Steak','Burger','Juice','Pizza','Coffee', 'Tea'],
        markers: [],
-       active: [true, true, true, true, true, true],
-       style: ['info', 'info', 'info', 'info', 'info', 'info']
+       active: [false, false, false, false, false, false],
+       style: ['info', 'info', 'info', 'info', 'info', 'info'],
+       activeMarkers: []
      }
 
      constructor(props) {
        super(props); 
        this.callVisibility = this.callVisibility.bind(this);
        this.getIndex = this.getIndex.bind(this);
-       this.toggleMarkers = this.toggleMarkers.bind(this);
+       this.listClick = this.listClick.bind(this);
+       this.showAll = this.showAll.bind(this)
      }
 
      // Dispatch the event.
@@ -37,59 +40,24 @@ class App extends Component {
          markers: [...this.state.markers, marker]
        })
    }
-
-   toggleMarkers(venue){
+ 
+   listClick(currentActiveMarker){
      let google = window.google
-      let venueIndex = this.getIndex(venue)
-      let active = this.state.active[venueIndex]
       let map = window.google.map
-      let style = this.state.style[venueIndex]
      
-     this.state.markers.map(marker => {
-        if(venue === marker.category && active && style === 'info'){
+     this.state.activeMarkers.map(marker => {
+        if(currentActiveMarker === marker && marker.active === 'inactive'){
         marker.setAnimation(google.maps.Animation.BOUNCE)
         marker.info.open(map, marker);
-         let markerStyleStatus = Object.assign([], this.state.style)
-         markerStyleStatus[venueIndex] = 'success'
-         this.setState({
-           style: markerStyleStatus
-         })
-        } else if (venue === marker.category) {
+        marker.active = 'active'
+        } else if (currentActiveMarker === marker && marker.active === 'active') {
           //close info window and stop bouncing
            marker.info.close(map, marker)
             marker.setAnimation(null)
-           let markerStyleStatus = Object.assign([], this.state.style)
-           markerStyleStatus[venueIndex] = 'info'
-           this.setState({
-             style: markerStyleStatus
-           })
-
+            marker.active = 'inactive'
         }
-        
      })
    }
-
-   changeActive(venueselected) {
-      let venues = this.state.venues
-      let index = venues.indexOf(venueselected)
-      console.log(index)
-      if(this.state.active[index] === true) {
-         let activeState = Object.assign([], this.state)
-         activeState.active[index] = false
-         activeState.style[index] = 'info'
-         this.setState({
-          activeState
-         })
-         
-      } else if (this.state.active[index] === false) {
-        let activeState = Object.assign([], this.state)
-        activeState.active[index] = true
-        activeState.style[index] = 'info'
-        this.setState({
-          activeState
-        })
-   }
-  }
 
    getIndex(venue) {
      let venues = this.state.venues
@@ -98,40 +66,81 @@ class App extends Component {
    }
 
    callVisibility(cat) {
-    this.changeActive(cat)
+      let venues = this.state.venues
+      let index = venues.indexOf(cat)
+      let falseArray = [false, false, false, false, false, false]
+      
+        falseArray[index] = true
+        console.log(falseArray)
+        let newArray = Object.assign([], this.state.active)
+        newArray = falseArray
+       
+    let activeMarkerArray = []
+
      this.state.markers.map(marker => {
-       if(marker.category === cat && marker.visibility === 'visible'){
-       marker.setVisible(false)
-       marker.visibility = 'invisible'
-       } else if (marker.category === cat && marker.visibility === 'invisible') {
-         marker.setVisible(true)
-        marker.visibility = 'visible'
+       if(marker.category === cat){
+       marker.setVisible(true)
+       marker.visibility = 'visible'
+       activeMarkerArray.push(marker)
+       } else if (marker.category !== cat) {
+         marker.setVisible(false)
+        marker.visibility = 'invisible'
        }
      })
-   }  
 
+      this.setState({
+        active: newArray,
+        activeMarkers: activeMarkerArray
+      })
+
+      console.log(this.state.active)
+   }
    
+   showAll(){
+     let google = window.google
+     let map = window.google.map
+
+     this.state.markers.map(marker => {
+       marker.setVisible(true)
+       marker.active = 'inactive'
+       marker.info.close(map, marker)
+       marker.setAnimation(null)
+     })
+     this.setState({activeMarkers: this.state.markers})
+   }
+
   render() {
     return (
       <Grid fluid={true}>
         <Row>
-           <Col md = {6}
-           sm = {6} >
-           <PageHeader className = 'header' onClick={this.markerBounce}>
+           <Col md = {3}
+           sm = {3} >
+           <PageHeader className = 'header' onClick={this.getActiveMarkers}>
               <div> Neighborhood Map</div>
               <small>By Antal Tettinger</small></PageHeader>
-            <Dropdown venues={this.state.venues} callVisibility={this.callVisibility} active={this.state.active} getIndex={this.getIndex}></Dropdown>
-            <List venues = {this.state.venues}
+            <Dropdown venues={this.state.venues} callVisibility={this.callVisibility} active={this.state.active} getIndex={this.getIndex} showAll={this.showAll}></Dropdown>
+            
+                 <List venues = {this.state.venues}
             active = {this.state.active}
             getIndex = {this.getIndex} toggleMarkers={this.toggleMarkers} style={this.state.style}/>
-               </Col>
+            <
+            /Col>
+          < Col md = {
+            3
+          }
+          sm = {
+            3
+          } >
+               <ListVenues activeMarkers = {this.state.activeMarkers} venues={this.state.venues} listClick={this.listClick}/>
+           </Col>
                <Col md = {6} sm={6}>
+               
                  <Container markerUpdate = {this.markerUpdate}
                  markersLoaded = {
                    this.state.markersLoaded
                  } venues={this.state.venues}> < /Container>
+              
               </Col>
-          
         </Row>
       </Grid>
     )

@@ -11,6 +11,8 @@ export class List extends React.Component {
         render() {
                 return ( 
                 <ListGroup>
+                    <
+                    ListGroupItem header = "Click on venue type to show those type of venue's markers bouncing on the map" > (Available selections showing: Dark blue) < /ListGroupItem>
                     {this.props.venues.map(venue =>
                    
                             < ListGroupItem bsStyle = {

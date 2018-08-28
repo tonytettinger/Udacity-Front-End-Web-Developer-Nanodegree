@@ -59,7 +59,7 @@ export class Map extends React.Component {
          })
      }
     render() {       
-        return ( <div ref = 'map'>
+        return ( <div role='application' ref = 'map'>
             Loading map...
             {
                 this.renderChildren()
