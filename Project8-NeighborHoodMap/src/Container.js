@@ -3,15 +3,6 @@ import React, {
     Component
 } from 'react';
 import GoogleApiComponent from './GoogleApiComponent'
-import * as FoursquareAPI from './FoursquareAPI'
-import {
-    Navbar,
-    Jumbotron,
-    Button,
-    Grid,
-    Row,
-    Col
-} from 'react-bootstrap';
 import Marker from './Marker'
 
 export class Container extends React.Component {

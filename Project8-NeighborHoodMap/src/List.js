@@ -7,14 +7,19 @@ import {
 } from 'react-bootstrap';
 
 export class List extends React.Component {
-        state = {
-            venue: false
-        }
+
         render() {
                 return ( 
                 <ListGroup>
                     {this.props.venues.map(venue =>
-                            <ListGroupItem key = {venue}
+                   
+                            < ListGroupItem bsStyle = {
+                                    `${this.props.style[this.props.getIndex(venue)]}`
+                            }
+                            key = {venue}
+                            onClick = {
+                                () => this.props.toggleMarkers(venue)
+                            }
                             active = {this.props.active[this.props.getIndex(venue)]}> {venue}
                             </ListGroupItem>)
                     } 

@@ -20,7 +20,6 @@ export class Marker extends React.Component {
         }
     }
 
-
      renderMarker(venueresult, venuecategory) {
          let {
              map,
