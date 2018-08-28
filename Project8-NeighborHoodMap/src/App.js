@@ -12,13 +12,13 @@ import {
 } from 'react-bootstrap';
 import Container from './Container'
 import Dropdown from './Dropdown'
-import List from './List'
+import Description from './Description'
 import ListVenues from './ListVenues'
 
 class App extends Component {
 
      state = {
-       venues: ['Steak','Burger','Juice','Pizza','Coffee', 'Tea'],
+       venues: ['Steak','Burger','Noodle','Pizza','Shake', 'Soup'],
        markers: [],
        active: [false, false, false, false, false, false],
        style: ['info', 'info', 'info', 'info', 'info', 'info'],
@@ -37,7 +37,8 @@ class App extends Component {
   
    markerUpdate = (marker) => {
      this.setState({
-         markers: [...this.state.markers, marker]
+         markers: [...this.state.markers, marker],
+         activeMarkers: [...this.state.markers, marker]
        })
    }
  
@@ -113,33 +114,42 @@ class App extends Component {
     return (
       <Grid fluid={true}>
         <Row>
-           <Col md = {3}
-           sm = {3} >
-           <PageHeader className = 'header' onClick={this.getActiveMarkers}>
-              <div> Neighborhood Map</div>
-              <small>By Antal Tettinger</small></PageHeader>
-            <Dropdown venues={this.state.venues} callVisibility={this.callVisibility} active={this.state.active} getIndex={this.getIndex} showAll={this.showAll}></Dropdown>
-            
-                 <List venues = {this.state.venues}
-            active = {this.state.active}
-            getIndex = {this.getIndex} toggleMarkers={this.toggleMarkers} style={this.state.style}/>
-            <
-            /Col>
-          < Col md = {
-            3
+          <Col sm={4}>
+          <PageHeader className = 'header'
+          onClick = {
+              this.getActiveMarkers
+            }>
+            <div> Neighborhood Map </div><small> By Antal Tettinger</small> 
+            </PageHeader>
+          
+          <Dropdown 
+          venues = {
+            this.state.venues
           }
-          sm = {
-            3
-          } >
-               <ListVenues activeMarkers = {this.state.activeMarkers} venues={this.state.venues} listClick={this.listClick}/>
+          callVisibility = {
+            this.callVisibility
+          }
+          active = {
+            this.state.active
+          }
+          getIndex = {
+            this.getIndex
+          }
+          showAll = {this.showAll}/>
+          
+          <Description/>
+          
+          </Col>
+            
+          <Col sm={3}>
+            <ListVenues activeMarkers = {this.state.activeMarkers} venues={this.state.venues} listClick={this.listClick}/>
            </Col>
-               <Col md = {6} sm={6}>
-               
+               <Col md = {5} sm={5}>
                  <Container markerUpdate = {this.markerUpdate}
                  markersLoaded = {
                    this.state.markersLoaded
-                 } venues={this.state.venues}> < /Container>
-              
+                 } venues={this.state.venues}> 
+                 </Container>
               </Col>
         </Row>
       </Grid>

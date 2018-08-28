@@ -2,7 +2,16 @@
   body{
   }
 }
-
-.btn-group{
-  margin-bottom: 15px
+.list-group{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
+.btn-group{
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.dropdown {
+}
+
