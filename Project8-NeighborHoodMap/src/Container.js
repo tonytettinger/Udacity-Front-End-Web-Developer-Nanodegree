@@ -22,7 +22,7 @@ export class Container extends React.Component {
         }
 
         if (!this.props.loaded) {
-            return <div> Loading... If loading takes too long there might be a connection problem to the Google Maps Server. Please check your connection and try and reload the page in that case.</div>
+            return <div> Loading... If loading takes too long there might be a connection problem to the Google Maps Server. Please check your connection and try to reload the page.</div>
         }
 
         return (

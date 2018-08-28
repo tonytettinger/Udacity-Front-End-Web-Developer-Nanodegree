@@ -17,7 +17,9 @@ export class Marker extends React.Component {
                     FoursquareAPI.getList(venuecategory)
                     .then(venueresult => this.renderMarker(venueresult, venuecategory))
                     .catch(function (error) {
-                        alert("Sorry, something went wrong when fetching the venues from FourSquare. Please reload the page.")
+                        alert("Sorry, something went wrong when fetching the venues from FourSquare so markers might not be properly displayed. Please try to reload the page.")
+                        window.stop()
+                        return
                     })
                     })
                     }

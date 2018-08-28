@@ -21,7 +21,6 @@ class App extends Component {
        venues: ['Steak','Burger','Noodle','Pizza','Shake', 'Soup'],
        markers: [],
        active: [false, false, false, false, false, false],
-       style: ['info', 'info', 'info', 'info', 'info', 'info'],
        activeMarkers: []
      }
 
@@ -70,9 +69,10 @@ class App extends Component {
       let venues = this.state.venues
       let index = venues.indexOf(cat)
       let falseArray = [false, false, false, false, false, false]
+      let google = window.google
+      let map = window.google.map
       
         falseArray[index] = true
-        console.log(falseArray)
         let newArray = Object.assign([], this.state.active)
         newArray = falseArray
        
@@ -86,6 +86,9 @@ class App extends Component {
        } else if (marker.category !== cat) {
          marker.setVisible(false)
         marker.visibility = 'invisible'
+        marker.active = 'inactive'
+        marker.info.close(map, marker)
+        marker.setAnimation(null)
        }
      })
 
@@ -93,8 +96,6 @@ class App extends Component {
         active: newArray,
         activeMarkers: activeMarkerArray
       })
-
-      console.log(this.state.active)
    }
    
    showAll(){
@@ -116,11 +117,9 @@ class App extends Component {
         <Row>
           <Col sm={4}>
           <PageHeader className = 'header'
-          onClick = {
-              this.getActiveMarkers
-            }>
+          onClick = {this.getActiveMarkers}>
             <div> Neighborhood Map </div><small> By Antal Tettinger</small> 
-            </PageHeader>
+          </PageHeader>
           
           <Dropdown 
           venues = {
@@ -138,18 +137,18 @@ class App extends Component {
           showAll = {this.showAll}/>
           
           <Description/>
-          
+      
           </Col>
             
           <Col sm={3}>
             <ListVenues activeMarkers = {this.state.activeMarkers} venues={this.state.venues} listClick={this.listClick}/>
            </Col>
-               <Col md = {5} sm={5}>
+               <Col sm={5}>
                  <Container markerUpdate = {this.markerUpdate}
                  markersLoaded = {
                    this.state.markersLoaded
                  } venues={this.state.venues}> 
-                 </Container>
+                 </Container>      
               </Col>
         </Row>
       </Grid>

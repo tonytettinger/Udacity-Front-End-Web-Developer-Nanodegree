@@ -12,7 +12,7 @@ import React, {
     }
     render(){
         return(
-    < DropdownButton bsSize = "default"
+    < DropdownButton
     title = {
         'Select places to eat and drink'
     }
