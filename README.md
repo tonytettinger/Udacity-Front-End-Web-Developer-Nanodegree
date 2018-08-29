@@ -29,13 +29,13 @@ Udacity project log
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project5-FeedReaderTest)
   - [preview](https://tonytettinger.github.io/Udacity-FEND-NanoDegree/Project5-FeedReaderTest/index.html)
 ###### Front-End Applications  
-- [ ] **Project 6** - Restaurant Reviews App - Stage 1
+- [x] **Project 6** - Restaurant Reviews App - Stage 1
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project6-RestaurantReviewApp)
   - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Project6-RestaurantReviewApp/index.html)
 ###### Building with React  
-- [ ] **Project 7** - MyReads: A Book Tracking App
+- [x] **Project 7** - MyReads: A Book Tracking App
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project7-BookTrackingApp-React)
   - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Project7-BookTrackingApp-React/public/index.html) 
-- [ ] **Project 8** - Neigbourhood Map (React)
-  - code
-  - preview  
+- [x] **Project 8** - Neigbourhood Map (React)
+  - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project8-NeighborHoodMap)
+  - preview 
