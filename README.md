@@ -31,11 +31,11 @@ Udacity project log
 ###### Front-End Applications  
 - [x] **Project 6** - Restaurant Reviews App - Stage 1
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project6-RestaurantReviewApp)
-  - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Project6-RestaurantReviewApp/index.html)
+  - preview
 ###### Building with React  
 - [x] **Project 7** - MyReads: A Book Tracking App
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project7-BookTrackingApp-React)
-  - [preview](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/Project7-BookTrackingApp-React/public/index.html) 
+  - preview
 - [x] **Project 8** - Neigbourhood Map (React)
   - [code](https://github.com/tonytettinger/Udacity-FEND-NanoDegree/tree/master/Project8-NeighborHoodMap)
   - preview 
