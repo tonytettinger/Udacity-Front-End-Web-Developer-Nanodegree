@@ -2,9 +2,7 @@
 
 Udacity project log
 
-### Contains exercise files from completed and in-progress Udacity courses and FEND Nanodegree.
-
-#### Front-end Developer Nanodegree projects & exercises(progress):
+#### Front-end Developer Nanodegree projects & exercises:
 
 ###### Web Foundations
 - [x] **Project 1** - Animal Trading Card
