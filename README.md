@@ -1,7 +1,5 @@
 # Udacity Front End Web Developer NanoDegree
 
-Udacity project log
-
 #### Front-end Developer Nanodegree projects & exercises:
 
 ###### Web Foundations
