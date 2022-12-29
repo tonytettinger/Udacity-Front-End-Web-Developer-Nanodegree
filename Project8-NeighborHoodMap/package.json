@@ -9,8 +9,8 @@
     "react-bootstrap": "^0.32.3",
     "react-dom": "^16.4.2",
     "react-error-boundary": "^1.2.3",
-    "react-scripts": "1.1.4",
-    "webpack": "^3.11.0"
+    "react-scripts": "5.0.1",
+    "webpack": "^5.75.0"
   },
   "scripts": {
     "start": "react-scripts start",
